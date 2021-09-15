@@ -24,9 +24,9 @@ class Article extends Migration
             $table->integer('Highlights');
             $table->integer('View')->nullable();
             $table->integer('idCategory')-> unsigned();
-            $table->foreign('idCategory')-> references('id')-> on('category');
             $table->integer('idUser')-> unsigned();
-            $table->foreign('idUser')->references('id')-> on('user');
+            $table->foreign('idCategory')-> references('id')-> on('category');
+            $table->foreign('idUser')->references('id')-> on('users');
             // $table->integer('idManager')-> unsigned();
             // $table->foreign('idManager')->references('id')-> on('manager');
         });
@@ -40,6 +40,8 @@ class Article extends Migration
     public function down()
     {
         //
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('article');
+        
     }
 }

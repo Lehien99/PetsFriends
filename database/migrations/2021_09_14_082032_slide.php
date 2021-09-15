@@ -31,7 +31,9 @@ class Slide extends Migration
     public function down()
     {
         //
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('slide');
+        
 
     }
 }

@@ -16,11 +16,11 @@ class Comment extends Migration
         //
         Schema::create('comment', function(Blueprint $table){
             $table->increments('id');
-            $table->integer('idUser')-> unsigned();
-            $table->foreign('idUser')-> references('id')-> on('user');
-            $table->integer('idArticle')-> unsigned();
-            $table->foreign('idArticle')-> references('id')-> on('article');
             $table->string('Content');
+            $table->integer('idUser')-> unsigned();
+            $table->integer('idArticle')-> unsigned();
+            $table->foreign('idUser')-> references('id')-> on('users');
+            $table->foreign('idArticle')-> references('id')-> on('article');
             $table->timestamps();
         });
     }
@@ -33,6 +33,8 @@ class Comment extends Migration
     public function down()
     {
         //
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('comment');
+        
     }
 }
