@@ -25,6 +25,8 @@ Route::group(['prefix'=>'admin'], function(){
         Route::get('add', 'CategoryController@getCate_Add');
         Route::post('add', 'CategoryController@postCate_Add');
 
+        Route::post('delete/{id}','CategoryController@destroy');
+
 
     });
 });

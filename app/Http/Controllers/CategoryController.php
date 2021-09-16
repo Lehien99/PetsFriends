@@ -47,4 +47,10 @@ class CategoryController extends Controller
     {
 
     }
+    public function destroy(Request $request,$id){
+        $category =Category::find($id);
+        $category->delete();
+
+        return redirect('admin/category/list')->with('Message','Category deleted successfully.');
+    }
 }
