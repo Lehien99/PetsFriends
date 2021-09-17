@@ -20,7 +20,8 @@ Route::group(['prefix'=>'admin'], function(){
     Route::group(['prefix'=>'category'], function(){
         Route::get('list','CategoryController@getCate_list');
 
-        Route::get('edit', 'CategoryController@getCate_edit');
+        Route::get('edit/{id}', 'CategoryController@getCate_edit');
+        Route::post('edit/{id}', 'CategoryController@postCate_edit');
 
         Route::get('add', 'CategoryController@getCate_Add');
         Route::post('add', 'CategoryController@postCate_Add');

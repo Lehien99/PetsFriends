@@ -36,7 +36,7 @@
                             <td>{{$cate->Name}}</td>
                             <td>Hiện</td>
                             <td class="center "><i class="fa fa-trash-o  fa-fw"></i><button class="center btn btn-danger" onclick="handleDelete({{$cate->id}})">Delete</button> </td>
-                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{asset('admin/category/edit')}}">Edit</a></td>
+                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/category/edit/{{$cate->id}}">Edit</a></td>
                         </tr>
                         @endforeach
                     </tbody>

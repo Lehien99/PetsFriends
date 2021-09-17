@@ -43,10 +43,36 @@ class CategoryController extends Controller
         
 
     }
-    public function getCate_Edit()
+    public function getCate_Edit($id)
     {
+        $category = Category::find($id);
+        return view('admin.category.cate_edit',['category'=> $category]);
 
     }
+
+    public function postCate_edit(Request $request,$id ){
+        $category = Category::find($id);
+
+        $this->validate($request,
+        [
+            'Name'=> 'required|min:3|max:100||unique:Category,Name'
+
+        ],
+        [
+            'Name.required'=>'You have not entered Category',
+            'Name.min'=>'The name Category must be between 3 and 50 characters long',
+            'Name.max'=>'The name Category must be between 3 and 50 characters long',
+
+        ]);
+
+        $category->Name = $request->Name;
+        $category->save();
+
+        return redirect('admin/category/edit/'.$id)->with('Message','Category edit successfully.');
+
+
+    }
+
     public function destroy(Request $request,$id){
         $category =Category::find($id);
         $category->delete();
