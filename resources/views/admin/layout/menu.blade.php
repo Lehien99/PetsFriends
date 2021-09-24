@@ -46,8 +46,8 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Article:</h6>
-                <a class="collapse-item" href="#">List Article</a>
-                <a class="collapse-item" href="#">Add Article</a>
+                <a class="collapse-item" href="admin/article/list">List Article</a>
+                <a class="collapse-item" href="admin/article/add">Add Article</a>
             </div>
         </div>
     </li>

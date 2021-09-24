@@ -28,6 +28,27 @@ Route::group(['prefix'=>'admin'], function(){
 
         Route::post('delete/{id}','CategoryController@destroy');
 
+    });
+    Route::group(['prefix'=>'article'], function(){
+        Route::get('list','ArticleController@getArt_list');
+
+        Route::get('add','ArticleController@getArt_Add');
+        Route::post('add','ArticleController@postArt_Add');
+
 
     });
 });
+
+// Route::group(['prefix'=>'user'], function(){
+//     Route::group(['prefix'=>'article'], function(){
+//         Route::get('list','ArticleController@getArt_list');
+
+//         Route::get('add','ArticleController@getArt_Add');
+//         Route::post('add','ArticleController@postArt_Add');
+//     });
+
+// });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -8,9 +8,8 @@ class Category extends Model
 {
     //
     protected $table ="Category";
+
     public function article(){
-        return $this->hasMany('App\article','idCategory','id');
-
+        return $this->hasMany('App\Article','idCategory','id');
     }
-
 }

@@ -27,6 +27,7 @@ class Article extends Migration
             $table->integer('idUser')-> unsigned();
             $table->foreign('idCategory')-> references('id')-> on('category');
             $table->foreign('idUser')->references('id')-> on('users');
+            $table->timestamps();
             // $table->integer('idManager')-> unsigned();
             // $table->foreign('idManager')->references('id')-> on('manager');
         });
