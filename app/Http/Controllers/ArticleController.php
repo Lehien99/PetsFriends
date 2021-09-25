@@ -22,8 +22,7 @@ class ArticleController extends Controller
     }
 
     public function postArt_Add(Request $request){
-         // Cần tahy đổi
-         $defaut =1;
+ 
         $this -> validate($request,
         [
             'Category'=>'required',
@@ -53,8 +52,6 @@ class ArticleController extends Controller
         $article -> Content = $request -> Content;
         $article -> idCategory = $request -> Category;
         $article -> Highlights = $request -> Highlight;
-        // cần taahy đổi ide user
-        $article-> idUser =  $defaut;
 
         if($request->hasFile('Image'))
         {
@@ -75,6 +72,14 @@ class ArticleController extends Controller
         }
         $article->save();
         return redirect('admin/article/add')->with('Message','Add data successfully');
+
+    }
+
+    public function destroy(Request $request, $id){
+        $article = Article::find($id);
+        $article->delete();
+
+        return redirect('admin/article/list')->with('Message','Category deleted successfully.');
 
     }
 }

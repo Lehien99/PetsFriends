@@ -24,12 +24,12 @@ class Article extends Migration
             $table->integer('Highlights');
             $table->integer('View')->nullable();
             $table->integer('idCategory')-> unsigned();
-            $table->integer('idUser')-> unsigned();
             $table->foreign('idCategory')-> references('id')-> on('category');
-            $table->foreign('idUser')->references('id')-> on('users');
             $table->timestamps();
-            // $table->integer('idManager')-> unsigned();
-            // $table->foreign('idManager')->references('id')-> on('manager');
+            //mai kết nối mối quan hệ qua model và làm bảng role
+            // $table->integer('idUser')-> unsigned();
+            // $table->foreign('idUser')->references('id')-> on('users');
+
         });
     }
 

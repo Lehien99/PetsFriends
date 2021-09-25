@@ -3,14 +3,14 @@
 @section('content')    
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800"> Article</h1>
+    <h1 class="h3 mb-2 text-gray-800">Category</h1>
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the .</p>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">List Article</h6>
+            <h6 class="m-0 font-weight-bold text-primary">List User</h6>
         </div>
         @if(session('Message'))
         <div class="alert alert-success"> 
@@ -23,32 +23,30 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Title</th>
-                            <th>IsPublisher</th>
-                            <th>Category</th>
-                            <th>Summary</th>
-                            <th>Content</th>
-                            <th>Image</th>
-                            <th>Highlights</th>
-                            <th>Views</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            {{-- <th>Role</th> --}}
+                            <th>Password</th>
+                            <th>Create_at</th>
+                            <th>Update_at</th>
                             <th>Delete</th>
+                            <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($article as $art)
+                      {{-- @foreach($user as $user) --}}
                         <tr>
-                            <td>{{$art->id}}</td>
-                            <td>{{$art->Title}}</td>
-                            <td>{{$art->IsPublisher}}</td>
-                            <td>{{$art->category->Name}}</td>
-                            <td>{{$art->Summary}}</td>
-                            <td>{{$art->Content}}</td>
-                            <td><img width="100px" src="upload/article/{{$art->Image}}"/></td>
-                            <td>{{$art->Highlights}}</td>
-                            <td>{{$art->View}}</td>
-                            <td class="center "><i class="fa fa-trash-o  fa-fw"></i><button class="center btn btn-danger" onclick="handleDelete({{$art->id}})">Delete</button> </td>
+                            <td></td>
+                            <td></td>
+                            <td>Hiện</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td class="center "><i class="fa fa-trash-o  fa-fw"></i><button class="center btn btn-danger" onclick="">Delete</button> </td>
+                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="">Edit</a></td>
                         </tr>
-                    @endforeach
+                        @endforeach
+                     
                     </tbody>
                 </table>
             </div>
@@ -80,13 +78,13 @@
 
 @endsection
 
-@section('scripts')
+{{-- @section('scripts')
 <script>
     function handleDelete(id){
         var form = document.getElementById('deleteCategoryForm')
-        form.action ='admin/article/delete/' + id
+        form.action ='admin/category/delete/' + id
         $('#deleteModal').modal('show')
     }
 </script>
 
-@endsection
+@endsection --}}

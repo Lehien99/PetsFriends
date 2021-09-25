@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::group(['prefix'=>'admin'], function(){
@@ -31,11 +31,16 @@ Route::group(['prefix'=>'admin'], function(){
     });
     Route::group(['prefix'=>'article'], function(){
         Route::get('list','ArticleController@getArt_list');
-
         Route::get('add','ArticleController@getArt_Add');
         Route::post('add','ArticleController@postArt_Add');
 
+        Route::post('delete/{id}','ArticleController@destroy' );
 
+    });
+    Route::group(['prefix'=>'user'], function(){
+        Route::get('list','UserController@getUser_list');
+        Route::get('add','UserController@getUser_Add');
+       
     });
 });
 
