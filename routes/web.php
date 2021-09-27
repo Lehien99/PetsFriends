@@ -39,8 +39,27 @@ Route::group(['prefix'=>'admin'], function(){
     });
     Route::group(['prefix'=>'user'], function(){
         Route::get('list','UserController@getUser_list');
+
         Route::get('add','UserController@getUser_Add');
+        Route::post('add','UserController@postUser_Add');
+
+        Route::get('edit/{id}', 'UserController@getUser_edit');
+        Route::post('edit/{id}', 'UserController@postUser_edit');
+
+        Route::post('delete/{id}','UserController@destroy');
+
        
+    });
+    Route::group(['prefix'=>'roles'],function(){
+        Route::get('list','RoleController@getRole_List');
+
+        Route::get('Add','RoleController@getRole_Add');
+        Route::post('Add','RoleController@postRole_Add');
+
+        Route::get('edit/{id}', 'RoleController@getRole_edit');
+        Route::post('edit/{id}', 'RoleController@postRole_edit');
+
+        Route::post('delete/{id}','RoleController@destroy');
     });
 });
 
@@ -54,6 +73,10 @@ Route::group(['prefix'=>'admin'], function(){
 
 // });
 
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//logout
+// Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

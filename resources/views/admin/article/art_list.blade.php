@@ -57,7 +57,7 @@
 </div>
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="" method="POST" id="deleteCategoryForm">
+        <form action="" method="POST" id="deleteArticleForm">
             @csrf
             {{-- @method('DELETE') --}}
             <div class="modal-content">
@@ -83,7 +83,7 @@
 @section('scripts')
 <script>
     function handleDelete(id){
-        var form = document.getElementById('deleteCategoryForm')
+        var form = document.getElementById('deleteArticleForm')
         form.action ='admin/article/delete/' + id
         $('#deleteModal').modal('show')
     }

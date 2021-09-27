@@ -3,9 +3,12 @@
 @section('content')    
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Category</h1>
+    <h1 class="h3 mb-2 text-gray-800">Role</h1>
     <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
         For more information about DataTables, please visit the .</p>
+        <div>
+            <button class="btn btn-primary"><a class="text-white" href="admin/roles/Add">Role Add</a></button>
+        </div>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
@@ -24,9 +27,6 @@
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Password</th>
                             <th>Create_at</th>
                             <th>Update_at</th>
                             <th>Delete</th>
@@ -34,20 +34,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                      @foreach($user as $user)
+                        @foreach($role as $role)
                         <tr>
-                            <td>{{$user->id}}</td>
-                            <td>{{$user->name}}</td>
-                            <td>{{$user->email}}</td>
-                            <td>{{$user->roles->name}}</td>
-                            <td>{{$user->password}}</td>
-                            <td>{{$user->created_at}}</td>
-                            <td>{{$user->updated_at}}</td>
-                            <td class="center "><i class="fa fa-trash-o  fa-fw"></i><button class="center btn btn-danger" onclick=" handleDelete({{$user->id}})">Delete</button> </td>
-                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/user/edit/{{$user->id}}">Edit</a></td>
+                            <td>{{$role->id}}</td>                     
+                            <td>{{$role->name}}</td>
+                            <td>{{$role->created_at}}</td>
+                            <td>{{$role->updated_at}}</td>
+                            <td class="center "><i class="fa fa-trash-o  fa-fw"></i><button class="center btn btn-danger" onclick="handleDelete({{$role->id}})">Delete</button> </td>
+                            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/roles/edit/{{$role->id}}">Edit</a></td>
                         </tr>
                         @endforeach
-                     
                     </tbody>
                 </table>
             </div>
@@ -56,7 +52,7 @@
 </div>
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form action="" method="POST" id="deleteUserForm">
+        <form action="" method="POST" id="deleteRoleForm">
             @csrf
             {{-- @method('DELETE') --}}
             <div class="modal-content">
@@ -82,8 +78,8 @@
 @section('scripts')
 <script>
     function handleDelete(id){
-        var form = document.getElementById('deleteUserForm')
-        form.action ='admin/user/delete/' + id
+        var form = document.getElementById('deleteRoleForm')
+        form.action ='admin/roles/delete/' + id
         $('#deleteModal').modal('show')
     }
 </script>

@@ -26,9 +26,9 @@ class Article extends Migration
             $table->integer('idCategory')-> unsigned();
             $table->foreign('idCategory')-> references('id')-> on('category');
             $table->timestamps();
-            //mai kết nối mối quan hệ qua model và làm bảng role
-            // $table->integer('idUser')-> unsigned();
-            // $table->foreign('idUser')->references('id')-> on('users');
+            //
+            $table->integer('idUser')-> unsigned();
+            $table->foreign('idUser')->references('id')-> on('users');
 
         });
     }

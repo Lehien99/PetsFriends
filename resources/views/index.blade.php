@@ -41,26 +41,31 @@
                         </button>
                        
                             <div class="collapse navbar-collapse" id="navbarResponsive" >
-                             @if (Route::has('login'))
-                            @auth
-                            <a href="{{ url('/home') }}">Home</a>
-                            @else
-                            <ul class="navbar-nav ml-auto ">
-                                <li class="nav-item ">
-                                    <a class="nav-link " href="#">Article</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link"href="{{ route('login') }}">Log In</a>
-                                </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item ">
-                                    <a class="nav-link " href="{{ route('register') }}">Resgister</a>
-                                </li>
-                            @endif
-                            </ul>
-                            @endauth
-                        @endif
-                     </div>
+                                <ul class="navbar-nav ml-auto ">
+                                    @if (Route::has('login'))
+                                    @auth
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="{{ url('/home') }}">Home</a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link " href="#">Article</a>
+                                    </li>
+                                    @else
+                                    <li class="nav-item ">
+                                        <a class="nav-link " href="#">Article</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link"href="{{ route('login') }}">Log In</a>
+                                    </li>
+                                @if (Route::has('register'))
+                                    <li class="nav-item ">
+                                        <a class="nav-link " href="{{ route('register') }}">Resgister</a>
+                                    </li>
+                                @endif
+                                @endauth
+                                @endif
+                                </ul>
+                            </div>
                     </div>
                 </nav>
                 <header class="header img-fluid p-5 ">
