@@ -31,6 +31,7 @@
                             <th>Image</th>
                             <th>Highlights</th>
                             <th>Views</th>
+                            <th>Status</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -46,6 +47,15 @@
                             <td><img width="100px" src="upload/article/{{$art->Image}}"/></td>
                             <td>{{$art->Highlights}}</td>
                             <td>{{$art->View}}</td>
+                            <td>
+                                <form action="{{url('admin/article/toggle-approve')}}" method="POST">
+                                    @csrf
+                                    <input <?php if($art->status ==1){echo "checked";} ?> type="checkbox" name="Status">           
+                                    <input type="hidden" name="articleID" value="{{$art->id}}">
+                                    <input class="btn btn-primary" type="submit" name="Done" id="">
+                
+                                </form>
+                            </td>
                             <td class="center "><i class="fa fa-trash-o  fa-fw"></i><button class="center btn btn-danger" onclick="handleDelete({{$art->id}})">Delete</button> </td>
                         </tr>
                     @endforeach

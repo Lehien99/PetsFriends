@@ -11,7 +11,7 @@ class ArticleController extends Controller
 {
     //
     public function getArt_list(){
-        $article = Article::orderBy('id','DESC')->get();
+        $article = Article::all();
         return view('admin.article.art_list', compact('article'));
     }
 
@@ -74,6 +74,24 @@ class ArticleController extends Controller
         $article->save();
         return redirect('user/article/add')->with('Message','Add data successfully');
 
+    }
+
+    public function post_status(Request $request)
+    {
+        $article = Article::find($request->articleID);
+        $status = $request->Status;
+        if($status == 'on'){
+            $status =1;
+        }
+        else
+        {
+            $status =0;
+
+        }
+        $article->status = $status;
+        $article->save();
+        return redirect('admin/article/list')->with('Message','toggle status successfully');
+     
     }
 
     public function destroy(Request $request, $id){

@@ -36,6 +36,8 @@ Route::group(['prefix'=>'admin'], function(){
 
         Route::post('delete/{id}','ArticleController@destroy' );
 
+        Route::post('/toggle-approve','ArticleController@post_status');
+
     });
     Route::group(['prefix'=>'user'], function(){
         Route::get('list','UserController@getUser_list');
@@ -61,6 +63,7 @@ Route::group(['prefix'=>'admin'], function(){
 
         Route::post('delete/{id}','RoleController@destroy');
     });
+    
 });
 
 Route::group(['prefix'=>'user'], function(){
@@ -81,3 +84,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // gate admin
 Route::get('/admin', 'HomeController@admin')->name('admin');
+
+//check status article
+
+
