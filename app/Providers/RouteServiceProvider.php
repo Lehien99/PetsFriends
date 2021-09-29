@@ -21,6 +21,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+    //sau khi đăng nhập chuyển tiếp qua đường dẫn 
     public const HOME = '/home';
 
     /**

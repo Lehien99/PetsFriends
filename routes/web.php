@@ -31,8 +31,8 @@ Route::group(['prefix'=>'admin'], function(){
     });
     Route::group(['prefix'=>'article'], function(){
         Route::get('list','ArticleController@getArt_list');
-        Route::get('add','ArticleController@getArt_Add');
-        Route::post('add','ArticleController@postArt_Add');
+        // Route::get('add','ArticleController@getArt_Add');
+        // Route::post('add','ArticleController@postArt_Add');
 
         Route::post('delete/{id}','ArticleController@destroy' );
 
@@ -63,15 +63,13 @@ Route::group(['prefix'=>'admin'], function(){
     });
 });
 
-// Route::group(['prefix'=>'user'], function(){
-//     Route::group(['prefix'=>'article'], function(){
-//         Route::get('list','ArticleController@getArt_list');
+Route::group(['prefix'=>'user'], function(){
+    Route::group(['prefix'=>'article'], function(){
+        Route::get('add','ArticleController@getArt_Add');
+        Route::post('add','ArticleController@postArt_Add');
+    });
 
-//         Route::get('add','ArticleController@getArt_Add');
-//         Route::post('add','ArticleController@postArt_Add');
-//     });
-
-// });
+});
 
 
 Auth::routes();
@@ -80,3 +78,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //logout
 // Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+// gate admin
+Route::get('/admin', 'HomeController@admin')->name('admin');

@@ -18,7 +18,7 @@ class ArticleController extends Controller
     public function getArt_add(){
 
         $category = Category::All();
-        return view('admin.article.art_add', compact('category'));
+        return view('user.article.art_add', compact('category'));
     }
 
     public function postArt_Add(Request $request){
@@ -52,6 +52,7 @@ class ArticleController extends Controller
         $article -> Content = $request -> Content;
         $article -> idCategory = $request -> Category;
         $article -> Highlights = $request -> Highlight;
+        $article -> idUser = $request -> Witer;
 
         if($request->hasFile('Image'))
         {
@@ -71,7 +72,7 @@ class ArticleController extends Controller
             $Image->Image ="";
         }
         $article->save();
-        return redirect('admin/article/add')->with('Message','Add data successfully');
+        return redirect('user/article/add')->with('Message','Add data successfully');
 
     }
 

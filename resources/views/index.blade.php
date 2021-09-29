@@ -47,13 +47,23 @@
                                     <li class="nav-item ">
                                         <a class="nav-link" href="{{ url('/home') }}">Home</a>
                                     </li>
-                                    <li class="nav-item ">
+                                    {{-- <li class="nav-item ">
                                         <a class="nav-link " href="#">Article</a>
-                                    </li>
+                                    </li> --}}
+        
                                     @else
-                                    <li class="nav-item ">
+                                    <li class="nav-item ">                               
+                                        <a class="dropdown-toggle nav-link" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Article
+                                        </a>                                         
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                            <a class="dropdown-item" href="#">List Article</a>                         
+                                            {{-- <a class="dropdown-item" href="#">Create Article</a> --}}
+                                        </div>                           
+                                     </li>
+                                    {{-- <li class="nav-item ">
                                         <a class="nav-link " href="#">Article</a>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item">
                                         <a class="nav-link"href="{{ route('login') }}">Log In</a>
                                     </li>

@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="{{asset('')}}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -18,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script type="text/javascript" language="javascript" src="admin_asset/ckeditor/ckeditor.js" ></script>
 </head>
 <body>
     <div id="app">
@@ -49,6 +51,14 @@
                                 </li>
                             @endif
                         @else
+                            @can('role-admin')
+                            <li  class="nav-item">
+                                <a class="nav-link" href="{{ route('admin') }}">admin</a>
+                            </li>
+                            @endcan
+                            <li  class="nav-item">
+                                <a class="nav-link" href="user/article/add">createAritcle</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

@@ -20,4 +20,11 @@
         </div>
     </div>
 </div> --}}
+{{-- <header class="header img-fluid p-5 ">
+    <div class="header__content text-white text-center   ">
+        <p class="h1 pt-5">We Love To Have Pets</p> 
+        <p class="h2">Will Rock Your Socks Off</p>
+        <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
+    </div>
+</header> --}}
 @endsection
