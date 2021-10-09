@@ -18,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script type="text/javascript" language="javascript" src="admin_asset/ckeditor/ckeditor.js" ></script>
+    <script type="text/javascript" language="javascript" src="{{asset('admin_asset/ckeditor/ckeditor.js')}}" ></script>
 </head>
 <body>
     <div id="app">
@@ -55,9 +55,6 @@
                                 <a class="nav-link" href="{{ route('admin') }}">admin</a>
                             </li>
                             @endcan
-                            <li  class="nav-item">
-                                <a class="nav-link" href="user/article/add">createAritcle</a>
-                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>

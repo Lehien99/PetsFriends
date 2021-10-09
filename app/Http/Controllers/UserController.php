@@ -20,6 +20,7 @@ class UserController extends Controller
         return view('admin.user.users_add', compact('role'));
     }
     public function postUser_Add(Request $request){
+        
         $this->validate($request,
         [
             'Name' => ['required', 'string', 'max:255'],
@@ -41,6 +42,14 @@ class UserController extends Controller
         $user->email = $request->Email;
         $user->password = Hash::make($request->Password);
         $user-> idRole = $request->Role;
+
+        if($request->hasFile('avatar'))
+        {
+            $avatar = $request->file('avatar')->getClientOriginalName();
+            $request->file('avatar')->storeAs('avatars', auth()->id().'/'.$avatar,'');
+            $user->update(['avatar'=>$avatar]);
+            $user->avatar = $avatar;
+        }
         $user ->save();
 
         return redirect('admin/user/add')->with('Message','Add data successfully');
@@ -59,9 +68,9 @@ class UserController extends Controller
 
     public function destroy($id){
         $user = User::find($id);
-        $user->delete;
+        $user->delete();
 
-        return redirect('admin/user/list')->with('Message','Category deleted successfully.');
+        return redirect('admin/user/list')->with('Message','User deleted successfully.');
 
     }
 }

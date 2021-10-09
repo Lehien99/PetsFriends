@@ -52,7 +52,7 @@ class RoleController extends Controller
         $role->name = $request->Name;
         $role->save();
 
-        return  redirect('admin/roles/edit/'.$id)->with('Message','Category edit successfully.');
+        return  redirect('admin/roles/edit/'.$id)->with('Message','Role edit successfully.');
         
 
     }
@@ -63,6 +63,6 @@ class RoleController extends Controller
         $role = Role::find($id);
         $role->delete();
 
-        return redirect('admin/roles/list')->with('Message','Category deleted successfully.');
+        return redirect('admin/roles/list')->with('Message','Role deleted successfully.');
     }
 }

@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
 Route::group(['prefix'=>'admin'], function(){
     Route::group(['prefix'=>'category'], function(){
@@ -75,9 +75,23 @@ Route::group(['prefix'=>'user'], function(){
 });
 
 
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/article', function () {
+//     return view('index');
+// });
+Route::get('/', function () {
+    return view('pages/article');
+});
+Route::get('/', 'PagesController@index');
+
+// Route::get(['prefix'=>'pages'],function(){
+//     Route::get('')
+
+
+// });
 
 //logout
 // Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');

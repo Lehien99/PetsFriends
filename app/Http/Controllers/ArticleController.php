@@ -101,4 +101,6 @@ class ArticleController extends Controller
         return redirect('admin/article/list')->with('Message','Category deleted successfully.');
 
     }
+
+
 }

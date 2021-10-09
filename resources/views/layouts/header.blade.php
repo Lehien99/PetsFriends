@@ -15,6 +15,14 @@
                         <!-- <a class="nav-link btn btn-default btn-instagram " href="index.html" style="position:relative ;">Home</a> -->
                     </li>
                 @guest
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#">Categpry</a>
+                        <ul class="dropdown-menu">
+                            @foreach($category as $cate)
+                            <li><a class="dropdown-item" href="#">{{$cate->Name}}</a></li>                      
+                            @endforeach
+                        </ul>
+                    </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -27,7 +35,7 @@
                 @else
                      @can('role-admin')
                     <li  class="nav-item">
-                        <a class="nav-link" href="{{ route('admin') }}">admin</a>
+                        <a class="nav-link" href="{{ route('admin') }}">Admin</a>
                     </li>
                      @endcan
                      {{-- <li  class="nav-item">
@@ -36,7 +44,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#">Aritcle</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Create Aritcles</a></li>
+                            <li><a class="dropdown-item" href="user/article/add">Create Aritcles</a></li>
                             <li><a class="dropdown-item" href="#">Manage My Aritcles</a></li>
                         </ul>
                     </li>

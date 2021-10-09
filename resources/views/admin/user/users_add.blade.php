@@ -52,6 +52,10 @@
                        <label>Password</label>
                        <input class="form-control"  name="Password" type="password" placeholder="Please Enter Password" />
                    </div>
+                    <div class="form-group">
+                       <label>Avatar</label>
+                       <input class="form-control"  id="avatar" type="file"  name="avatar" />
+                   </div>
                     {{-- <div class="form-group">
                        <label> Confirm Password</label>
                        <input class="form-control"  name="password" type="password" placeholder="Please Enter Password" />
