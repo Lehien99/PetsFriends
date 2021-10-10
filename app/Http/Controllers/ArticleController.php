@@ -9,11 +9,8 @@ use App\Article;
 
 class ArticleController extends Controller
 {
-    //
-    public function getArt_list(){
-        $article = Article::all();
-        return view('admin.article.art_list', compact('article'));
-    }
+    //user
+
 
     public function getArt_add(){
 
@@ -74,6 +71,11 @@ class ArticleController extends Controller
         $article->save();
         return redirect('user/article/add')->with('Message','Add data successfully');
 
+    }
+    //  ==============================Admin===============================
+    public function getArt_list(){
+        $article = Article::all();
+        return view('admin.article.art_list', compact('article'));
     }
 
     public function post_status(Request $request)

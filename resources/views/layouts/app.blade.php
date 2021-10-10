@@ -18,7 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script type="text/javascript" language="javascript" src="{{asset('admin_asset/ckeditor/ckeditor.js')}}" ></script>
+    {{-- <script type="text/javascript" language="javascript" src="{{asset('admin_asset/ckeditor/ckeditor.js')}}" ></script> --}}
+    {{-- <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('ckfinder/ckfinder.js') }}"></script> --}}
 </head>
 <body>
     <div id="app">
@@ -81,7 +83,8 @@
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
+    </div> 
+    {{-- @yield('js') --}}
 </body>
 </html>
 

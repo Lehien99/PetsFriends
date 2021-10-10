@@ -18,6 +18,10 @@
         <link rel="stylesheet" href="user_asset/css/slick.css" type="text/css" media="all">
         <link rel="stylesheet" href="user_asset/css/simple-line-icons.css" type="text/css" media="all">
         <link rel="stylesheet" href="user_asset/css/style.css" type="text/css" media="all">
+        <script src="ckeditor/ckeditor.js"></script>
+        <script src="ckfinder/ckfinder.js"></script>
+        
+        
 
     </head>
     <body>
@@ -87,5 +91,7 @@
 <script src="user_asset/js/slick.min.js"></script>
 <script src="user_asset/js/jquery.sticky-sidebar.min.js"></script>
 <script src="user_asset/js/custom.js"></script>
-    </body>
+
+@yield('js')
+</body>
 </html>

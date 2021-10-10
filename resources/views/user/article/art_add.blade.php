@@ -1,6 +1,7 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
+@extends('index')
 
-@section('content')
+@section('contents')
     
 <!-- Page Content -->
 <div id="page-wrapper mx-auto">
@@ -54,7 +55,7 @@
                    </div>
                    <div class="form-group">
                         <label>Content</label>
-                        <textarea name="Content" id="demo" class="form-control ckeditor"></textarea>
+                        <textarea name="Content" id="editor1" class="form-control "></textarea>
                     </div>
                     <div class="form-group">
                         <label>Image</label>
@@ -86,4 +87,17 @@
 </div>
 <!-- /#page-wrapper -->
 
+@endsection
+
+
+@section('js')
+<script>
+    CKEDITOR.replace( 'editor1', {
+    filebrowserBrowseUrl: '/ckfinder/ckfinder.html',
+    filebrowserUploadUrl: '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+    filebrowserWindowWidth: '1000',
+    filebrowserWindowHeight: '700'
+} );
+
+</script>
 @endsection

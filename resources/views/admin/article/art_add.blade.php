@@ -52,10 +52,10 @@
                        <label>Summary</label>
                        <textarea name="Summary" id="Summary" class="form-control " ></textarea>
                    </div>
-                   <div class="form-group">
+                   {{-- <div class="form-group">
                         <label>Content</label>
-                        <textarea name="Content" id="demo" class="form-control ckeditor"></textarea>
-                    </div>
+                        <textarea name="Content" id="editor1" class="form-control ckeditor"></textarea>
+                    </div> --}}
                     <div class="form-group">
                         <label>Image</label>
                         <input class="form-control" type="file" name="Image" id='Image' />
