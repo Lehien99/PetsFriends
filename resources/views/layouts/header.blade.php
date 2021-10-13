@@ -10,13 +10,13 @@
 
                     <li class="nav-item">
                         <!-- btn btn-default btn-instagram -->
-                        <a class="nav-link active" href="index.html">Home</a>
+                        <a class="nav-link active" href="/">Home</a>
                     
                         <!-- <a class="nav-link btn btn-default btn-instagram " href="index.html" style="position:relative ;">Home</a> -->
                     </li>
                 @guest
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#">Categpry</a>
+                        <a class="nav-link dropdown-toggle" href="#">Category</a>
                         <ul class="dropdown-menu">
                             @foreach($category as $cate)
                             <li><a class="dropdown-item" href="#">{{$cate->Name}}</a></li>                      

@@ -70,8 +70,8 @@ Route::group(['prefix'=>'user'], function(){
     Route::group(['prefix'=>'article'], function(){
         Route::get('add','ArticleController@getArt_Add');
         Route::post('add','ArticleController@postArt_Add');
+        Route::get('detail/{id}','PagesController@detail');
     });
-
 });
 
 
@@ -82,10 +82,9 @@ Auth::routes();
 // Route::get('/article', function () {
 //     return view('index');
 // });
-Route::get('/', function () {
-    return view('pages/article');
-});
+
 Route::get('/', 'PagesController@index');
+
 
 // Route::get(['prefix'=>'pages'],function(){
 //     Route::get('')

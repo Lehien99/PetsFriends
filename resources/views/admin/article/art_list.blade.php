@@ -27,11 +27,12 @@
                             <th>IsPublisher</th>
                             <th>Category</th>
                             <th>Summary</th>
-                            <th>Content</th>
+                            {{-- <th>Content</th> --}}
                             <th>Image</th>
                             <th>Highlights</th>
-                            <th>Views</th>
+                            <th>Views</th>                           
                             <th>Status</th>
+                            <th>Action</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
@@ -43,10 +44,17 @@
                             <td>{{$art->IsPublisher}}</td>
                             <td>{{$art->category->Name}}</td>
                             <td>{{$art->Summary}}</td>
-                            <td>{{$art->Content}}</td>
+                            {{-- <td>{{$art->Content}}</td> --}}
                             <td><img width="100px" src="upload/article/{{$art->Image}}"/></td>
                             <td>{{$art->Highlights}}</td>
                             <td>{{$art->View}}</td>
+                            <td>
+                                @if($art->status == 0)
+                                <span class="label bg-c-pink m-l-10">{{'Rejected'}}</span> 
+                                @else
+                                <span class="label bg-c-green m-l-10 f-10">{{'Approved'}}</span>
+                                @endif
+                            </td>
                             <td>
                                 <form action="{{url('admin/article/toggle-approve')}}" method="POST">
                                     @csrf

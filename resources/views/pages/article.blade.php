@@ -11,21 +11,23 @@
 				<div class="col-lg-8">
 					
 					<!-- featured post large -->
+					@foreach($article as $art)
 					<div class="post featured-post-lg">
 						<div class="details clearfix">
-							<a href="category.html" class="category-badge">Inspiration</a>
-							<h2 class="post-title"><a href="blog-single.html">5 Easy Ways You Can Turn Future Into Success</a></h2>
+							<a href="category.html" class="category-badge">{{$art->category->Name}}</a>
+							<h2 class="post-title"><a href="user/article/detail/{{$art->id}}">{{$art->Title}}</a></h2>
 							<ul class="meta list-inline mb-0">
-								<li class="list-inline-item"><a href="#">Katen Doe</a></li>
-								<li class="list-inline-item">29 March 2021</li>
+								<li class="list-inline-item"><a href="#">{{$art->IsPublisher}}</a></li>
+								<li class="list-inline-item">{{$art->created_at}}</li>
 							</ul>
 						</div>
-						<a href="blog-single.html">
+						<a href="user/article/detail/{{$art->id}}">
 							<div class="thumb rounded">
-								<div class="inner data-bg-image" data-bg-image="user_asset/images/posts/featured-lg.jpg"></div>
+								<div class="inner data-bg-image" data-bg-image="upload/article/{{$art->Image}}"></div>
 							</div>
 						</a>
 					</div>
+					@endforeach
 
 				</div>
 
@@ -185,7 +187,6 @@
 		</div>
 
 	</section>
-
 	<!-- section main content -->
 	<section class="main-content">
 		<div class="container-xl">
@@ -681,8 +682,9 @@
 
 		</div>
 	</section>
-
-
-
+	<div class="layouts_insta">
+		@include('layouts.insta')
+	</div>
+	@include('layouts.footer')
 
 @endsection

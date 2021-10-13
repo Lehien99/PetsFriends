@@ -79,7 +79,7 @@
 	{{-- content --}}
 	@yield('contents')
 	{{-- footer --}}
-     @include('layouts.footer')
+     {{-- @include('layouts.footer') --}}
 </div>
 
 @include('layouts.menu')
