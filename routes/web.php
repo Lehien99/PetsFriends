@@ -70,34 +70,24 @@ Route::group(['prefix'=>'user'], function(){
     Route::group(['prefix'=>'article'], function(){
         Route::get('add','ArticleController@getArt_Add');
         Route::post('add','ArticleController@postArt_Add');
-        Route::get('detail/{id}','PagesController@detail');
+        Route::get('detail/{article}','PagesController@detail')->name('article.detail');
     });
 });
+//comment system in laravel
+// Route::post('/comment/store', 'CommentController@store')->name('comment.add');
+Route::post('/comment/add', 'CommentController@Add')->name('comment.add');
+Route::post('/reply/add', 'CommentController@replyAdd')->name('reply.add');
+
+
 
 
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/article', function () {
-//     return view('index');
-// });
-
 Route::get('/', 'PagesController@index');
-
-
-// Route::get(['prefix'=>'pages'],function(){
-//     Route::get('')
-
-
-// });
-
-//logout
-// Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // gate admin
 Route::get('/admin', 'HomeController@admin')->name('admin');
-
 //check status article
 
 

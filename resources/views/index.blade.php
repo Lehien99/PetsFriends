@@ -93,5 +93,6 @@
 <script src="user_asset/js/custom.js"></script>
 
 @yield('js')
+
 </body>
 </html>

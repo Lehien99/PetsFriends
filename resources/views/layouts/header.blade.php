@@ -14,7 +14,6 @@
                     
                         <!-- <a class="nav-link btn btn-default btn-instagram " href="index.html" style="position:relative ;">Home</a> -->
                     </li>
-                @guest
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#">Category</a>
                         <ul class="dropdown-menu">
@@ -23,7 +22,7 @@
                             @endforeach
                         </ul>
                     </li>
-
+                @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
@@ -38,9 +37,6 @@
                         <a class="nav-link" href="{{ route('admin') }}">Admin</a>
                     </li>
                      @endcan
-                     {{-- <li  class="nav-item">
-                        <a class="nav-link" href="user/article/add">createAritcle</a>
-                    </li> --}}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#">Aritcle</a>
                         <ul class="dropdown-menu">

@@ -15,12 +15,16 @@ class Article extends Model
     {
         return $this->belongsTo('App\Category', 'idCategory', 'id');
     }
+    
     public function user()
     {
         return $this->belongsTo('App\User','idUser','id');
     }
 
-    // public function comment(){
-    //     return $this->hasMany('App\Comment','idTinTuc','id');
-    // }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
+    }
+    
 }

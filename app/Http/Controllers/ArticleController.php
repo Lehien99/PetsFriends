@@ -10,6 +10,10 @@ use App\Article;
 class ArticleController extends Controller
 {
     //user
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
 
     public function getArt_add(){

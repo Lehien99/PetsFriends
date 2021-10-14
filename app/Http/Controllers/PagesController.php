@@ -12,8 +12,8 @@ class PagesController extends Controller
     //
     public function __construct()
     {
-        $category = Category::all();
-        // $category = Category::withCount('article')->get();
+        // $category = Category::all();
+        $category = Category::withCount('article')->get();
         view::share(['category'=>$category]);
         
     }
@@ -25,9 +25,12 @@ class PagesController extends Controller
                       ->get();
         return view('pages.article',compact('article'));
     }
-    public function detail($id){
-        $article = Article::find($id);
+    public function detail( $article){
+        $article = Article::find($article);
         return view('pages.article_detail', compact('article'));
+        // dd($article->comments);
+
+        
     }
 
 }

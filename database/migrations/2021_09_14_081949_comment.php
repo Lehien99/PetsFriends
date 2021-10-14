@@ -14,13 +14,13 @@ class Comment extends Migration
     public function up()
     {
         //
-        Schema::create('comment', function(Blueprint $table){
+        Schema::create('comments', function(Blueprint $table){
             $table->increments('id');
-            $table->string('Content');
-            $table->integer('idUser')-> unsigned();
-            $table->integer('idArticle')-> unsigned();
-            $table->foreign('idUser')-> references('id')-> on('users');
-            $table->foreign('idArticle')-> references('id')-> on('article');
+            $table->integer('user_id')->unsigned();
+            $table->integer('parent_id')->unsigned()->nullable();
+            $table->text('comment');
+            $table->integer('commentable_id')->unsigned();
+            $table->string('commentable_type');
             $table->timestamps();
         });
     }
@@ -33,8 +33,7 @@ class Comment extends Migration
     public function down()
     {
         //
-        Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('comment');
+        Schema::dropIfExists('comments');
         
     }
 }

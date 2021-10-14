@@ -18,10 +18,11 @@
 							<h2 class="post-title"><a href="user/article/detail/{{$art->id}}">{{$art->Title}}</a></h2>
 							<ul class="meta list-inline mb-0">
 								<li class="list-inline-item"><a href="#">{{$art->IsPublisher}}</a></li>
-								<li class="list-inline-item">{{$art->created_at}}</li>
+								<li class="list-inline-item">{{$art->created_at->format(' d M Y ')}}</li>
 							</ul>
 						</div>
-						<a href="user/article/detail/{{$art->id}}">
+						{{-- <a href="user/article/detail/{{$art->id}}"> --}}
+							<a href="{{ route('article.detail',['article'=> $art]) }}">
 							<div class="thumb rounded">
 								<div class="inner data-bg-image" data-bg-image="upload/article/{{$art->Image}}"></div>
 							</div>
