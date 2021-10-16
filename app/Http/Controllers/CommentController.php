@@ -18,6 +18,7 @@ class CommentController extends Controller
         $comment->user()->associate($request->user());
       
         $article = Article::find($request->article_id);
+        // dd( $article);
        
         $article->comments()->save($comment);
 

@@ -26,12 +26,17 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function get_home()
+    {
+        return view('admin.home');
+    }
+    
     //gate
     public function admin()
     {  
         if ( Gate::allows('role-admin')) {
-            return view('admin.layout.index'); 
-            // return redirect('admin/category/list');          
+            // return view('admin.home'); 
+            return redirect('admin/dashboard');          
         }
         else{
             abort(403);       

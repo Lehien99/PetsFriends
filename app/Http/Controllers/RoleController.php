@@ -8,6 +8,10 @@ use App\Role;
 class RoleController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function getRole_List(){
         $role = Role::all();
         return view('admin.roles.roles_list', compact('role'));

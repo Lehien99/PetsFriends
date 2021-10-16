@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     //
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function getUser_list(){
         $user = User::all();
         return view('admin.user.users_list',compact('user'));

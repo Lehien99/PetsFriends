@@ -20,8 +20,8 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+            aria-controls="collapseTwo">
             {{-- <i class="fas fa-fw fa-cog"></i> --}}
             <i class="fas fa-list"></i>
             <span>Category</span>
@@ -29,8 +29,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Category:</h6>
-                <a class="collapse-item" href="{{asset('admin/category/list')}}">List Category</a>
-                <a class="collapse-item" href="{{asset('admin/category/add')}}">Add category</a>
+                <a class="collapse-item" href="{{ asset('admin/category/list') }}">List Category</a>
+                <a class="collapse-item" href="{{ asset('admin/category/add') }}">Add category</a>
             </div>
         </div>
     </li>
@@ -62,8 +62,8 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-            aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+            aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
             <span>User</span>
         </a>

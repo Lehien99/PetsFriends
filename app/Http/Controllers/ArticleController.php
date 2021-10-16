@@ -86,7 +86,8 @@ class ArticleController extends Controller
     {
         $article = Article::find($request->articleID);
         $status = $request->Status;
-        if($status == 'on'){
+        // dd($status);
+        if($status == "on"){
             $status =1;
         }
         else

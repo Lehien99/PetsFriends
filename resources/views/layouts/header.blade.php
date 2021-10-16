@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-xl">
             <!-- site logo -->
-            <a class="navbar-brand" href="index.html"><img src="user_asset/images/logo.svg" alt="logo" /></a> 
+            <a class="navbar-brand" href="index.html"><img src="user_asset/images/logo.svg" alt="logo" /></a>
 
             <div class="collapse navbar-collapse">
                 <!-- menus -->
@@ -11,57 +11,58 @@
                     <li class="nav-item">
                         <!-- btn btn-default btn-instagram -->
                         <a class="nav-link active" href="/">Home</a>
-                    
+
                         <!-- <a class="nav-link btn btn-default btn-instagram " href="index.html" style="position:relative ;">Home</a> -->
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#">Category</a>
                         <ul class="dropdown-menu">
-                            @foreach($category as $cate)
-                            <li><a class="dropdown-item" href="#">{{$cate->Name}}</a></li>                      
+                            @foreach ($category as $cate)
+                                <li><a class="dropdown-item" href="#">{{ $cate->Name }}</a></li>
                             @endforeach
                         </ul>
                     </li>
-                @guest
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Login</a>
-                    </li>
-                    @if (Route::has('register'))
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Register</a>
-                    </li>
-                    @endif
-                @else
-                     @can('role-admin')
-                    <li  class="nav-item">
-                        <a class="nav-link" href="{{ route('admin') }}">Admin</a>
-                    </li>
-                     @endcan
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#">Aritcle</a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="user/article/add">Create Aritcles</a></li>
-                            <li><a class="dropdown-item" href="#">Manage My Aritcles</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">Login</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">Register</a>
+                            </li>
+                        @endif
+                    @else
+                        @can('role-admin')
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin') }}">Admin</a>
+                            </li>
+                        @endcan
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#">Aritcle</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="user/article/add">Create Aritcles</a></li>
+                                <li><a class="dropdown-item" href="#">Manage My Aritcles</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                @endguest
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
                 </ul>
             </div>
 

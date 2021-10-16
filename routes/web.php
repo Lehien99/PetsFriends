@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::group(['prefix'=>'admin'], function(){
+    Route::get('home', 'HomeController@get_home');
     Route::group(['prefix'=>'category'], function(){
         Route::get('list','CategoryController@getCate_list');
 
@@ -63,7 +64,11 @@ Route::group(['prefix'=>'admin'], function(){
 
         Route::post('delete/{id}','RoleController@destroy');
     });
-    
+    Route::group(['prefix'=>'manage'], function(){
+        route::get('article/{id}', 'ManageController@index');
+    });   
+     route::get('dashboard','DashboardController@barchart');
+
 });
 
 Route::group(['prefix'=>'user'], function(){
@@ -89,5 +94,3 @@ Route::get('/', 'PagesController@index');
 // gate admin
 Route::get('/admin', 'HomeController@admin')->name('admin');
 //check status article
-
-

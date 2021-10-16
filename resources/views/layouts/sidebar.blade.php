@@ -33,7 +33,8 @@
                     </a>
                 </div>
                 <div class="details clearfix">
-                    <h6 class="post-title my-0"><a href="blog-single.html">3 Easy Ways To Make Your iPhone Faster</a></h6>
+                    <h6 class="post-title my-0"><a href="blog-single.html">3 Easy Ways To Make Your iPhone Faster</a>
+                    </h6>
                     <ul class="meta list-inline mt-1 mb-0">
                         <li class="list-inline-item">29 March 2021</li>
                     </ul>
@@ -50,7 +51,8 @@
                     </a>
                 </div>
                 <div class="details clearfix">
-                    <h6 class="post-title my-0"><a href="blog-single.html">An Incredibly Easy Method That Works For All</a></h6>
+                    <h6 class="post-title my-0"><a href="blog-single.html">An Incredibly Easy Method That Works For
+                            All</a></h6>
                     <ul class="meta list-inline mt-1 mb-0">
                         <li class="list-inline-item">29 March 2021</li>
                     </ul>
@@ -67,30 +69,31 @@
                     </a>
                 </div>
                 <div class="details clearfix">
-                    <h6 class="post-title my-0"><a href="blog-single.html">10 Ways To Immediately Start Selling Furniture</a></h6>
+                    <h6 class="post-title my-0"><a href="blog-single.html">10 Ways To Immediately Start Selling
+                            Furniture</a></h6>
                     <ul class="meta list-inline mt-1 mb-0">
                         <li class="list-inline-item">29 March 2021</li>
                     </ul>
                 </div>
             </div>
-        </div>		
+        </div>
     </div>
 
     <!-- widget categories -->
     <div class="widget rounded">
-       
+
         <div class="widget-header text-center">
-            <h3 class="widget-title">{{'Explore Category'}}</h3>
+            <h3 class="widget-title">{{ 'Explore Category' }}</h3>
             <img src="user_asset/images/wave.svg" class="wave" alt="wave" />
         </div>
-        @foreach($category as $cate)
-        <div class="widget-content">
-            <ul class="list">
-                <li><a href="#">{{$cate->Name}}</a><span>{{$cate->article_count}}</span></li>
-            </ul>
-        </div>
+        @foreach ($category as $cate)
+            <div class="widget-content">
+                <ul class="list">
+                    <li><a href="#">{{ $cate->Name }}</a><span>{{ $cate->article_count }}</span></li>
+                </ul>
+            </div>
         @endforeach
-        
+
     </div>
 
     <!-- widget newsletter -->
@@ -129,7 +132,8 @@
                             </div>
                         </a>
                     </div>
-                    <h5 class="post-title mb-0 mt-4"><a href="blog-single.html">5 Easy Ways You Can Turn Future Into Success</a></h5>
+                    <h5 class="post-title mb-0 mt-4"><a href="blog-single.html">5 Easy Ways You Can Turn Future Into
+                            Success</a></h5>
                     <ul class="meta list-inline mt-2 mb-0">
                         <li class="list-inline-item"><a href="#">Katen Doe</a></li>
                         <li class="list-inline-item">29 March 2021</li>
@@ -145,7 +149,8 @@
                             </div>
                         </a>
                     </div>
-                    <h5 class="post-title mb-0 mt-4"><a href="blog-single.html">Master The Art Of Nature With These 7 Tips</a></h5>
+                    <h5 class="post-title mb-0 mt-4"><a href="blog-single.html">Master The Art Of Nature With These 7
+                            Tips</a></h5>
                     <ul class="meta list-inline mt-2 mb-0">
                         <li class="list-inline-item"><a href="#">Katen Doe</a></li>
                         <li class="list-inline-item">29 March 2021</li>
@@ -161,7 +166,8 @@
                             </div>
                         </a>
                     </div>
-                    <h5 class="post-title mb-0 mt-4"><a href="blog-single.html">5 Easy Ways You Can Turn Future Into Success</a></h5>
+                    <h5 class="post-title mb-0 mt-4"><a href="blog-single.html">5 Easy Ways You Can Turn Future Into
+                            Success</a></h5>
                     <ul class="meta list-inline mt-2 mb-0">
                         <li class="list-inline-item"><a href="#">Katen Doe</a></li>
                         <li class="list-inline-item">29 March 2021</li>
@@ -170,10 +176,12 @@
             </div>
             <!-- carousel arrows -->
             <div class="slick-arrows-bot">
-                <button type="button" data-role="none" class="carousel-botNav-prev slick-custom-buttons" aria-label="Previous"><i class="icon-arrow-left"></i></button>
-                <button type="button" data-role="none" class="carousel-botNav-next slick-custom-buttons" aria-label="Next"><i class="icon-arrow-right"></i></button>
+                <button type="button" data-role="none" class="carousel-botNav-prev slick-custom-buttons"
+                    aria-label="Previous"><i class="icon-arrow-left"></i></button>
+                <button type="button" data-role="none" class="carousel-botNav-next slick-custom-buttons"
+                    aria-label="Next"><i class="icon-arrow-right"></i></button>
             </div>
-        </div>		
+        </div>
     </div>
 
     <!-- widget advertisement -->
@@ -196,7 +204,7 @@
             <a href="#" class="tag">#Featured</a>
             <a href="#" class="tag">#Gallery</a>
             <a href="#" class="tag">#Celebrities</a>
-        </div>		
+        </div>
     </div>
 
 </div>
