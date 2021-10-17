@@ -97,7 +97,8 @@ class ArticleController extends Controller
         }
         $article->status = $status;
         $article->save();
-        return redirect('admin/article/list')->with('Message','toggle status successfully');
+        // return redirect('admin/article/list')->with('Message','toggle status successfully');
+        return back();
      
     }
 

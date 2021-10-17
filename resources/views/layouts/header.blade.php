@@ -10,7 +10,7 @@
 
                     <li class="nav-item">
                         <!-- btn btn-default btn-instagram -->
-                        <a class="nav-link active" href="/">Home</a>
+                        <a class="nav-link active " href="/">Home</a>
 
                         <!-- <a class="nav-link btn btn-default btn-instagram " href="index.html" style="position:relative ;">Home</a> -->
                     </li>

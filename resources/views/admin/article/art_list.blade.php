@@ -43,7 +43,7 @@
                                     <td>{{ $art->id }}</td>
                                     <td>{{ $art->IsPublisher }}</td>
                                     <td>{{ $art->category->Name }}</td>
-                                    <td> <a href="admin/manage/article/{{ $art->id }}"> {{ $art->Title }}</a> </td>
+                                    <td> <a style="text-decoration: none" href="admin/manage/article/{{ $art->id }}"> {{ $art->Title }}</a> </td>
                                     {{-- <td>{{ $art->Summary }}</td> --}}
                                     <td>{{ $art->created_at->format(' d M Y ') }}</td>
                                     {{-- <td>{{$art->Content}}</td> --}}
