@@ -25,6 +25,7 @@
         .instagram{
             line-height: 2;
         }
+
     </style>
 
 

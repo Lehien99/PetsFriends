@@ -85,8 +85,8 @@
                         <img src="user_asset/images/wave.svg" class="wave" alt="wave" />
                     </div>
 
-
-                    <div class="comments bordered padding-30 rounded">
+                    @if ( $article->comments->count() > 0)
+                    <div class="comments bordered padding-30 rounded" >
                         @foreach ($article->comments as $comment)
                             <ul class="comments">
                                 <!-- comment item -->
@@ -192,6 +192,7 @@
                             </ul>
                         @endforeach
                     </div>
+                    @endif
 
                     <!-- End comment-sec Area -->
 
@@ -207,7 +208,7 @@
                             <div class="spacer" data-height="50"></div>
                             <div class="section-header">
                                 <h3 class="section-title">Leave Comment</h3>
-                                <img src="images/wave.svg" class="wave" alt="wave" />
+                                <img src="user_asset/images/wave.svg" class="wave" alt="wave" />
                             </div>
                             <!-- comment form -->
                             <div class="comment-form rounded bordered padding-30">

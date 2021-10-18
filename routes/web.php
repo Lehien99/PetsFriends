@@ -82,6 +82,7 @@ Route::group(['prefix'=>'user'], function(){
 // Route::post('/comment/store', 'CommentController@store')->name('comment.add');
 Route::post('/comment/add', 'CommentController@Add')->name('comment.add');
 Route::post('/reply/add', 'CommentController@replyAdd')->name('reply.add');
+Route::get('/search','PagesController@search');
 
 
 

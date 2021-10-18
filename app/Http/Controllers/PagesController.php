@@ -32,5 +32,14 @@ class PagesController extends Controller
 
         
     }
+    public function search(Request $request){
+        $search_text = $request->get('query');
+        $article = Article::where('Title','LIKE','%'.$search_text.'%')->get();
+        $article_count = count($article);
+        // dd(  $article);
+        return view('Pages.search',compact('article','article_count'));
+        // return view('pages.search');
+    }
+
 
 }
