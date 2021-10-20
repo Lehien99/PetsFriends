@@ -42,10 +42,12 @@
                         <ul class="nav nav-tabs nav-pills nav-fill" id="postsTab" role="tablist">
                             <li class="nav-item" role="presentation"><button aria-controls="popular"
                                     aria-selected="true" class="nav-link active" data-bs-target="#popular"
-                                    data-bs-toggle="tab" id="popular-tab" role="tab" type="button">Popular</button></li>
+                                    data-bs-toggle="tab" id="popular-tab" role="tab"
+                                    type="button">{{ 'Popular' }}</button></li>
                             <li class="nav-item" role="presentation"><button aria-controls="recent"
                                     aria-selected="false" class="nav-link" data-bs-target="#recent"
-                                    data-bs-toggle="tab" id="recent-tab" role="tab" type="button">Recent</button></li>
+                                    data-bs-toggle="tab" id="recent-tab" role="tab"
+                                    type="button">{{ 'Recent' }}</button></li>
                         </ul>
                         <!-- tab contents -->
                         <div class="tab-content" id="postsTabContent">
@@ -55,144 +57,48 @@
                             <div aria-labelledby="popular-tab" class="tab-pane fade show active" id="popular"
                                 role="tabpanel">
                                 <!-- post -->
-                                <div class="post post-list-sm circle">
-                                    <div class="thumb circle">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/tabs-1.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
+                                @foreach ($popular as $populars)
+                                    <div class="post post-list-sm circle">
+                                        <div class="thumb circle">
+                                            <a href="blog-single.html">
+                                                <div class="inner">
+                                                    <img src="upload/article/{{ $populars->Image }}" alt="post-title" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="details clearfix">
+                                            <h6 class="post-title my-0"><a
+                                                    href="blog-single.html">{{ $populars->Title }}</a></h6>
+                                            <ul class="meta list-inline mt-1 mb-0">
+                                                <li class="list-inline-item">{{ $populars->created_at->format('d M Y') }}
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">3 Easy Ways To Make Your
-                                                iPhone Faster</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- post -->
-                                <div class="post post-list-sm circle">
-                                    <div class="thumb circle">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/tabs-2.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">An Incredibly Easy Method
-                                                That Works For All</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- post -->
-                                <div class="post post-list-sm circle">
-                                    <div class="thumb circle">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/tabs-3.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">10 Ways To Immediately Start
-                                                Selling Furniture</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- post -->
-                                <div class="post post-list-sm circle">
-                                    <div class="thumb circle">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/tabs-4.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">15 Unheard Ways To Achieve
-                                                Greater Walker</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                             <!-- recent posts -->
                             <div aria-labelledby="recent-tab" class="tab-pane fade" id="recent" role="tabpanel">
                                 <!-- post -->
-                                <div class="post post-list-sm circle">
-                                    <div class="thumb circle">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/tabs-2.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
+                                @foreach ($recent as $recents)
+                                    <div class="post post-list-sm circle">
+                                        <div class="thumb circle">
+                                            <a href="blog-single.html">
+                                                <div class="inner">
+                                                    <img src="upload/article/{{ $recents->Image }}" alt="post-title" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="details clearfix">
+                                            <h6 class="post-title my-0"><a
+                                                    href="blog-single.html">{{ $recents->Title }}</a></h6>
+                                            <ul class="meta list-inline mt-1 mb-0">
+                                                <li class="list-inline-item">{{ $recents->created_at->format(' d M Y ') }}
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">An Incredibly Easy Method
-                                                That Works For All</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- post -->
-                                <div class="post post-list-sm circle">
-                                    <div class="thumb circle">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/tabs-1.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">3 Easy Ways To Make Your
-                                                iPhone Faster</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- post -->
-                                <div class="post post-list-sm circle">
-                                    <div class="thumb circle">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/tabs-4.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">15 Unheard Ways To Achieve
-                                                Greater Walker</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- post -->
-                                <div class="post post-list-sm circle">
-                                    <div class="thumb circle">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/tabs-3.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">10 Ways To Immediately Start
-                                                Selling Furniture</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -322,13 +228,11 @@
 
                     <!-- horizontal ads -->
                     <!-- <div class="ads-horizontal text-md-center">
-              <span class="ads-title">- Sponsored Ad -</span>
-              <a href="#">
-               <img src="images/ads/ad-750.png" alt="Advertisement" />
-              </a>
-             </div>
-
-             <div class="spacer" data-height="50"></div> -->
+                  <span class="ads-title">- Sponsored Ad -</span>
+                  <a href="#">
+                   <img src="images/ads/ad-750.png" alt="Advertisement" />
+                  </a>
+                 </div> -->
 
                     <!-- section header -->
                     <div class="section-header">
@@ -546,204 +450,60 @@
                     <div class="padding-30 rounded bordered">
 
                         <div class="row">
-
-                            <div class="col-md-12 col-sm-6">
-                                <!-- post -->
-                                <div class="post post-list clearfix">
-                                    <div class="thumb rounded">
-                                        <span class="post-format-sm">
-                                            <i class="icon-picture"></i>
-                                        </span>
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/latest-sm-1.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details">
-                                        <ul class="meta list-inline mb-3">
-                                            <li class="list-inline-item"><a href="#"><img
-                                                        src="user_asset/images/other/author-sm.png" class="author"
-                                                        alt="author" />Katen Doe</a></li>
-                                            <li class="list-inline-item"><a href="#">Trending</a></li>
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                        <h5 class="post-title"><a href="blog-single.html">The Next 60 Things To
-                                                Immediately Do About Building</a></h5>
-                                        <p class="excerpt mb-0">A wonderful serenity has taken possession of my entire
-                                            soul, like these sweet mornings</p>
-                                        <div class="post-bottom clearfix d-flex align-items-center">
-                                            <div class="social-share me-auto">
-                                                <button class="toggle-button icon-share"></button>
-                                                <ul class="icons list-unstyled list-inline mb-0">
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-facebook-f"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-twitter"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-linkedin-in"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-pinterest"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-telegram-plane"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="far fa-envelope"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="more-button float-end">
-                                                <a href="blog-single.html"><span class="icon-options"></span></a>
+                            @foreach ($recent as $recents)
+                                <div class="col-md-12 col-sm-6">
+                                    <!-- post -->
+                                    <div class="post post-list clearfix">
+                                        <div class="thumb rounded">
+                                            <span class="post-format-sm">
+                                                <i class="icon-picture"></i>
+                                            </span>
+                                            <a href="blog-single.html">
+                                                <div class="inner">
+                                                    <img src="upload/article/{{ $recents->Image }}" alt="post-title" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="details">
+                                            <ul class="meta list-inline mb-3">
+                                                <li class="list-inline-item"><a href="#"><img
+                                                            src="user_asset/images/other/author-sm.png"
+                                                            class="author"
+                                                            alt="author" />{{ $recents->IsPublisher }}</a></li>
+                                                <li class="list-inline-item"><a
+                                                        href="#">{{ $recents->category->Name }}</a></li>
+                                                <li class="list-inline-item">
+                                                    {{ $recents->created_at->format(' d M Y ') }}</li>
+                                            </ul>
+                                            <h5 class="post-title"><a
+                                                    href="blog-single.html">{{ $recents->Title }}</a></h5>
+                                            <p class="excerpt mb-0">{{ $recents->Summary }}</p>
+                                            <div class="post-bottom clearfix d-flex align-items-center">
+                                                <div class="social-share me-auto">
+                                                    <button class="toggle-button icon-share"></button>
+                                                    <ul class="icons list-unstyled list-inline mb-0">
+                                                        <li class="list-inline-item"><a href="#"><i
+                                                                    class="fab fa-facebook-f"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i
+                                                                    class="fab fa-twitter"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i
+                                                                    class="fab fa-linkedin-in"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i
+                                                                    class="fab fa-pinterest"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i
+                                                                    class="fab fa-telegram-plane"></i></a></li>
+                                                        <li class="list-inline-item"><a href="#"><i
+                                                                    class="far fa-envelope"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="more-button float-end">
+                                                    <a href="blog-single.html"><span class="icon-options"></span></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="col-md-12 col-sm-6">
-                                <!-- post -->
-                                <div class="post post-list clearfix">
-                                    <div class="thumb rounded">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/latest-sm-2.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details">
-                                        <ul class="meta list-inline mb-3">
-                                            <li class="list-inline-item"><a href="#"><img
-                                                        src="user_asset/images/other/author-sm.png" class="author"
-                                                        alt="author" />Katen Doe</a></li>
-                                            <li class="list-inline-item"><a href="#">Lifestyle</a></li>
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                        <h5 class="post-title"><a href="blog-single.html">Master The Art Of Nature With
-                                                These 7 Tips</a></h5>
-                                        <p class="excerpt mb-0">A wonderful serenity has taken possession of my entire
-                                            soul, like these sweet mornings</p>
-                                        <div class="post-bottom clearfix d-flex align-items-center">
-                                            <div class="social-share me-auto">
-                                                <button class="toggle-button icon-share"></button>
-                                                <ul class="icons list-unstyled list-inline mb-0">
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-facebook-f"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-twitter"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-linkedin-in"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-pinterest"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-telegram-plane"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="far fa-envelope"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="more-button float-end">
-                                                <a href="blog-single.html"><span class="icon-options"></span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 col-sm-6">
-                                <!-- post -->
-                                <div class="post post-list clearfix">
-                                    <div class="thumb rounded">
-                                        <span class="post-format-sm">
-                                            <i class="icon-camrecorder"></i>
-                                        </span>
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/latest-sm-3.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details">
-                                        <ul class="meta list-inline mb-3">
-                                            <li class="list-inline-item"><a href="#"><img
-                                                        src="user_asset/images/other/author-sm.png" class="author"
-                                                        alt="author" />Katen Doe</a></li>
-                                            <li class="list-inline-item"><a href="#">Fashion</a></li>
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                        <h5 class="post-title"><a href="blog-single.html">Facts About Business That
-                                                Will Help You Success</a></h5>
-                                        <p class="excerpt mb-0">A wonderful serenity has taken possession of my entire
-                                            soul, like these sweet mornings</p>
-                                        <div class="post-bottom clearfix d-flex align-items-center">
-                                            <div class="social-share me-auto">
-                                                <button class="toggle-button icon-share"></button>
-                                                <ul class="icons list-unstyled list-inline mb-0">
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-facebook-f"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-twitter"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-linkedin-in"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-pinterest"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-telegram-plane"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="far fa-envelope"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="more-button float-end">
-                                                <a href="blog-single.html"><span class="icon-options"></span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 col-sm-6">
-                                <!-- post -->
-                                <div class="post post-list clearfix">
-                                    <div class="thumb rounded">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/latest-sm-4.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details">
-                                        <ul class="meta list-inline mb-3">
-                                            <li class="list-inline-item"><a href="#"><img
-                                                        src="user_asset/images/other/author-sm.png" class="author"
-                                                        alt="author" />Katen Doe</a></li>
-                                            <li class="list-inline-item"><a href="#">Politic</a></li>
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                        <h5 class="post-title"><a href="blog-single.html">Your Light Is About To Stop
-                                                Being Relevant</a></h5>
-                                        <p class="excerpt mb-0">A wonderful serenity has taken possession of my entire
-                                            soul, like these sweet mornings</p>
-                                        <div class="post-bottom clearfix d-flex align-items-center">
-                                            <div class="social-share me-auto">
-                                                <button class="toggle-button icon-share"></button>
-                                                <ul class="icons list-unstyled list-inline mb-0">
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-facebook-f"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-twitter"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-linkedin-in"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-pinterest"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="fab fa-telegram-plane"></i></a></li>
-                                                    <li class="list-inline-item"><a href="#"><i
-                                                                class="far fa-envelope"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="more-button float-end">
-                                                <a href="blog-single.html"><span class="icon-options"></span></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
 
                         </div>
                         <!-- load more button -->

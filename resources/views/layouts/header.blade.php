@@ -18,7 +18,7 @@
                         <a class="nav-link dropdown-toggle" href="#">Category</a>
                         <ul class="dropdown-menu">
                             @foreach ($category as $cate)
-                                <li><a class="dropdown-item" href="#">{{ $cate->Name }}</a></li>
+                                <li><a class="dropdown-item" href="/category/{{$cate->id}}">{{ $cate->Name }}</a></li>
                             @endforeach
                         </ul>
                     </li>

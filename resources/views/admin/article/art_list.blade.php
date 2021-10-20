@@ -27,11 +27,6 @@
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Create_at</th>
-                                {{-- <th>Summary</th> --}}
-                                {{-- <th>Content</th>
-                                <th>Image</th>
-                                <th>Highlights</th>
-                                <th>Views</th> --}}
                                 <th>Status</th>
                                 <th>Action</th>
                                 {{-- <th>Delete</th> --}}
@@ -44,12 +39,7 @@
                                     <td>{{ $art->IsPublisher }}</td>
                                     <td>{{ $art->category->Name }}</td>
                                     <td> <a style="text-decoration: none" href="admin/manage/article/{{ $art->id }}"> {{ $art->Title }}</a> </td>
-                                    {{-- <td>{{ $art->Summary }}</td> --}}
                                     <td>{{ $art->created_at->format(' d M Y ') }}</td>
-                                    {{-- <td>{{$art->Content}}</td> --}}
-                                    {{-- <td><img width="100px" src="upload/article/{{ $art->Image }}" /></td>
-                                    <td>{{ $art->Highlights }}</td>
-                                    <td>{{ $art->View }}</td> --}}
                                     <td>
                                         @if ($art->status == 0)
                                             <span class="label bg-c-pink m-l-10">{{ 'Rejected' }}</span>

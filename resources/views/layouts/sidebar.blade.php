@@ -1,7 +1,7 @@
 <div class="sidebar">
     <!-- widget about -->
-    <!-- <div class="widget rounded">
-        <div class="widget-about data-bg-image text-center" data-bg-image="images/map-bg.png">
+    <div class="widget rounded">
+        <div class="widget-about data-bg-image text-center" data-bg-image="user_asset/images/map-bg.png">
             <img src="images/logo.svg" alt="logo" class="mb-4" />
             <p class="mb-4">Hello, We’re content writer who is fascinated by content fashion, celebrity and lifestyle. We helps clients bring the right content to the right people.</p>
             <ul class="social-icons list-unstyled list-inline mb-0">
@@ -13,12 +13,12 @@
                 <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
             </ul>
         </div>
-    </div> -->
+    </div> 
 
     <!-- widget popular posts -->
     <div class="widget rounded">
         <div class="widget-header text-center">
-            <h3 class="widget-title">Popular Posts</h3>
+            <h3 class="widget-title">{{'Popular Posts'}}</h3>
             <img src="user_asset/images/wave.svg" class="wave" alt="wave" />
         </div>
         <div class="widget-content">
@@ -89,7 +89,7 @@
         @foreach ($category as $cate)
             <div class="widget-content">
                 <ul class="list">
-                    <li><a href="#">{{ $cate->Name }}</a><span>{{ $cate->article_count }}</span></li>
+                    <li><a href="/category/{{$cate->id}}">{{ $cate->Name }}</a><span>{{ $cate->article_count }}</span></li>
                 </ul>
             </div>
         @endforeach

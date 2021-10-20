@@ -9,8 +9,8 @@
         </div>
         <!-- form -->
         <form class="d-flex search-form"  type="get" action="/search">
-            <input class="form-control me-2" name="query" type="search" placeholder="Search and press enter ..." aria-label="Search">
-            <button class="btn btn-default btn-lg"  type="submit"><i class="icon-magnifier"></i></button>
+            <input class="form-control me-2" name="query" type="search" placeholder="Search Article and press enter ..." aria-label="Search">
+            <button class="btn btn-default btn-lg"  type="submit"><i class="icon-magnifier" ></i></button>
         </form>
     </div>
 </div>

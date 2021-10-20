@@ -12,12 +12,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-
+//page admin
 Route::group(['prefix'=>'admin'], function(){
-    Route::get('home', 'HomeController@get_home');
+
     Route::group(['prefix'=>'category'], function(){
         Route::get('list','CategoryController@getCate_list');
 
@@ -70,7 +67,7 @@ Route::group(['prefix'=>'admin'], function(){
      route::get('dashboard','DashboardController@barchart');
 
 });
-
+//pages user
 Route::group(['prefix'=>'user'], function(){
     Route::group(['prefix'=>'article'], function(){
         Route::get('add','ArticleController@getArt_Add');
@@ -79,10 +76,10 @@ Route::group(['prefix'=>'user'], function(){
     });
 });
 //comment system in laravel
-// Route::post('/comment/store', 'CommentController@store')->name('comment.add');
 Route::post('/comment/add', 'CommentController@Add')->name('comment.add');
 Route::post('/reply/add', 'CommentController@replyAdd')->name('reply.add');
 Route::get('/search','PagesController@search');
+Route::get('/category/{id}','PagesController@view');
 
 
 
@@ -94,4 +91,3 @@ Route::get('/', 'PagesController@index');
 
 // gate admin
 Route::get('/admin', 'HomeController@admin')->name('admin');
-//check status article

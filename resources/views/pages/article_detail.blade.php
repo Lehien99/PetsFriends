@@ -131,7 +131,7 @@
                                     <li class="comment child rounded" id="reply-form-{{ $comment->id }}"
                                         style="display: none">
                                         <div class="thumb">
-                                            <img src="{{ asset('storage/user/' . Auth::user()->image) }}"
+                                            <img src="{{ asset('storage/user/'  Auth::user()->image) }}"
                                             alt="{{ Auth::user()->image }}" width="50px" />
                                         </div>
                                         <div class="details">

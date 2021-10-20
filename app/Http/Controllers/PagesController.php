@@ -14,7 +14,12 @@ class PagesController extends Controller
     {
         // $category = Category::all();
         $category = Category::withCount('article')->get();
-        view::share(['category'=>$category]);
+        $recent =  Article::orderBy('id', 'desc')->where('status','1')->take(4)->get();
+        $popular =  Article::orderBy('views', 'desc')->where('status','1')->take(4)->get();  
+        //$editorPick = Article::    
+        // $recent = Article::take(5)->latest()->get();
+        // dd($recent);
+        view::share(['category'=>$category,'recent'=>$recent,'popular'=>$popular]);
         
     }
    
@@ -24,8 +29,11 @@ class PagesController extends Controller
                       ->where('status','1')
                       ->get();
         return view('pages.article',compact('article'));
+        
     }
     public function detail( $article){
+        // dd($article);
+        Article::find($article)->increment('views');
         $article = Article::find($article);
         return view('pages.article_detail', compact('article'));
         // dd($article->comments);
@@ -39,6 +47,12 @@ class PagesController extends Controller
         // dd(  $article);
         return view('Pages.search',compact('article','article_count'));
         // return view('pages.search');
+    }
+    public function view($id){
+        $category_id = Category::find($id);
+        $article = Article::where('idCategory','=',$id)->get();
+    //  dd($article);
+        return view('pages.art_cate',compact('article','category_id'));
     }
 
 
