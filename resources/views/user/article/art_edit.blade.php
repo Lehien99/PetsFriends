@@ -10,8 +10,8 @@
                 <div class="col-lg-8">
                     <div class="">
                         <div class="">
-                            <h3 class="text-dark"> Add Article
-                                {{-- <small>Add</small> --}}
+                            <h3 class="text-dark"> Edit Article
+                                 <small>{{$article->Title}}</small>
                             </h3>
                         </div>
                         <div class="" style="padding-bottom:120px">
@@ -32,36 +32,41 @@
 
 
                             @endif
-                            <form action="user/article/add" method="POST" enctype="multipart/form-data">
+                            <form action="user/article/edit/{{$article->id}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <p>Category</p>
                                     <select class="form-control" name="Category" id="Category">
                                         @foreach ($category as $cate)
-                                            <option value="{{ $cate->id }}">{{ $cate->Name }}</option>
+                                            <option 
+                                            @if($article->category->id = $cate->id)
+                                            {{"selected"}}
+                                            @endif
+                                            value="{{ $cate->id }}">{{ $cate->Name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <p>Title</p>
-                                    <input class="form-control" name="Title" placeholder="Please Enter Title Name" />
+                                    <input class="form-control" name="Title" placeholder="Please Enter Title Name" value="{{$article->Title}}" />
                                 </div>
                                 <div class="form-group">
                                     <p>IsPublisher</p>
                                     <input class="form-control" name="IsPublisher"
-                                        placeholder="Please Enter IsPublisher Name" />
+                                        placeholder="Please Enter IsPublisher Name" value=" {{$article->IsPublisher}}" />
                                 </div>
                                 <div class="form-group">
                                     <p>Summary</p>
-                                    <textarea name="Summary" id="Summary" class="form-control "></textarea>
+                                    <textarea name="Summary" id="Summary" class="form-control ">{{$article->Summary}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <p>Content</p>
-                                    <textarea name="Content" id="editor1" class="form-control "></textarea>
+                                    <textarea name="Content" id="editor1" class="form-control ">{{$article->Content}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <p>Image</p>
-                                    <input class="form-control" type="file" name="Image" id='Image' />
+                                    <img src="upload/article/{{ $article->Image }}" alt="image">
+                                    <input class="form-control" type="file" name="Image" id='Image' value="{{$article->Image}}" />
                                     {{-- <input type="file" class="form-control" name="picture" id="picture"> --}}
                                 </div>
                                  <div class="form-group">

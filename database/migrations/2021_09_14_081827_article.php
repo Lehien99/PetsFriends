@@ -22,7 +22,6 @@ class Article extends Migration
             $table->string('Image');
             $table->string('IsPublisher');
             $table->integer('Highlights');
-            $table->integer('View')->nullable();
             $table->integer('idCategory')-> unsigned();
             $table->foreign('idCategory')-> references('id')-> on('category');
             $table->timestamps();

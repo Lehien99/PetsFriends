@@ -15,7 +15,7 @@ class AddViewsToArticleTable extends Migration
     {
         Schema::table('article', function (Blueprint $table) {
             //
-            $table->integer('views');
+            $table->integer('views')-> default( 0 ) ;
         });
     }
 

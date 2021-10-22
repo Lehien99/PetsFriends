@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-xl">
             <!-- site logo -->
-            <a class="navbar-brand" href="index.html"><img src="user_asset/images/logo.svg" alt="logo" /></a>
+            <a class="navbar-brand" href="/"><img src="user_asset/images/logo.svg" alt="logo" /></a>
 
             <div class="collapse navbar-collapse">
                 <!-- menus -->
@@ -41,7 +41,7 @@
                             <a class="nav-link dropdown-toggle" href="#">Aritcle</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="user/article/add">Create Aritcles</a></li>
-                                <li><a class="dropdown-item" href="#">Manage My Aritcles</a></li>
+                                <li><a class="dropdown-item" href="user/manage/list"> My Aritcles</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">

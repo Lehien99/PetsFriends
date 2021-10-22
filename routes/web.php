@@ -63,16 +63,25 @@ Route::group(['prefix'=>'admin'], function(){
     });
     Route::group(['prefix'=>'manage'], function(){
         route::get('article/{id}', 'ManageController@index');
+    
     });   
-     route::get('dashboard','DashboardController@barchart');
+    route::get('dashboard','DashboardController@barchart');
 
 });
 //pages user
 Route::group(['prefix'=>'user'], function(){
     Route::group(['prefix'=>'article'], function(){
+
         Route::get('add','ArticleController@getArt_Add');
         Route::post('add','ArticleController@postArt_Add');
+        
         Route::get('detail/{article}','PagesController@detail')->name('article.detail');
+
+        Route::get('edit/{id}', 'ArticleController@getArt_edit');
+        Route::post('edit/{id}', 'ArticleController@postArt_edit');
+    });
+    Route::group(['prefix'=>'manage'],function(){
+        route::get('list', 'ArticleController@view' );
     });
 });
 //comment system in laravel

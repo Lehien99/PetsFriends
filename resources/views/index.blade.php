@@ -12,6 +12,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="user_asset/images/favicon.png">
+    <link href="{{ asset('admin_asset/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
 
     <!-- STYLES -->
     <link rel="stylesheet" href="user_asset/css/bootstrap.min.css" type="text/css" media="all">
@@ -52,7 +53,7 @@
     <script src="user_asset/js/slick.min.js"></script>
     <script src="user_asset/js/jquery.sticky-sidebar.min.js"></script>
     <script src="user_asset/js/custom.js"></script>
-
+    @yield('scripts')
     @yield('js')
 </body>
 @stack('footers')

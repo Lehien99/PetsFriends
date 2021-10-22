@@ -110,19 +110,18 @@
                             <canvas id="myBarChart"></canvas>
                         </div>
                         <hr>
-                        Styling for the bar chart can be found in the
-                        <code>/js/demo/chart-bar-demo.js</code> file.
+                        Bar chart shows article data by category
                     </div>
                 </div>
 
             </div>
 
-            <!-- Donut Chart -->
+            <!-- Pie Chart -->
             <div class="col-xl-4 col-lg-5">
                 <div class="card shadow mb-4">
                     <!-- Card Header - Dropdown -->
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Pie Chart</h6>
                     </div>
                     <!-- Card Body -->
                     <div class="card-body">
@@ -131,11 +130,10 @@
                             <input type="hidden" id="health" value="{{ $health_count }}">
                             <input type="hidden" id="food" value="{{ $food_count }}">
                             <input type="hidden" id="life" value=" {{ $life_count }}">
-                            <input type="hidden" id="sport" value="{{ $sport_count }}">
+                            <input type="hidden" id="accessory" value="{{ $accessory_count }}">
                         </div>
                         <hr>
-                        Styling for the donut chart can be found in the
-                        <code>/js/demo/chart-pie-demo.js</code> file.
+                        Bar chartPie Chart shows article data by category
                     </div>
                 </div>
             </div>
@@ -151,14 +149,14 @@
         var myBarChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ["Health", "food", "Life", "Sport"],
+                labels: ["Health", "food", "Life", "Accessory"],
                 datasets: [{
                     label: "Revenue",
                     backgroundColor: "#4e73df",
                     hoverBackgroundColor: "#2e59d9",
                     borderColor: "#4e73df",
                     data: [{{ $health_count }}, {{ $food_count }}, {{ $life_count }},
-                        {{ $sport_count }}
+                        {{ $accessory_count }}
                     ],
                 }],
             },

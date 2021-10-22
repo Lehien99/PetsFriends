@@ -1,5 +1,7 @@
 <div class="sidebar">
     <!-- widget about -->
+    {{-- @guest
+    @else
     <div class="widget rounded">
         <div class="widget-about data-bg-image text-center" data-bg-image="user_asset/images/map-bg.png">
             <img src="images/logo.svg" alt="logo" class="mb-4" />
@@ -14,6 +16,7 @@
             </ul>
         </div>
     </div> 
+    @endguest --}}
 
     <!-- widget popular posts -->
     <div class="widget rounded">
@@ -23,59 +26,25 @@
         </div>
         <div class="widget-content">
             <!-- post -->
+            @foreach ($popular as $populars)
             <div class="post post-list-sm circle">
                 <div class="thumb circle">
-                    <span class="number">1</span>
-                    <a href="blog-single.html">
+                    <span class="number">{{$populars ->id}}</span>
+                    <a href="{{ route('article.detail', ['article' =>$populars]) }}">
                         <div class="inner">
-                            <img src="user_asset/images/posts/tabs-1.jpg" alt="post-title" />
+                            <img src="upload/article/{{ $populars->Image }}" alt="post-title" />
                         </div>
                     </a>
                 </div>
                 <div class="details clearfix">
-                    <h6 class="post-title my-0"><a href="blog-single.html">3 Easy Ways To Make Your iPhone Faster</a>
+                    <h6 class="post-title my-0"><a href="{{ route('article.detail', ['article' =>$populars]) }}">{{ $populars->Title }}</a>
                     </h6>
                     <ul class="meta list-inline mt-1 mb-0">
-                        <li class="list-inline-item">29 March 2021</li>
+                        <li class="list-inline-item">{{ $populars->created_at->format('d M Y') }}</li>
                     </ul>
                 </div>
             </div>
-            <!-- post -->
-            <div class="post post-list-sm circle">
-                <div class="thumb circle">
-                    <span class="number">2</span>
-                    <a href="blog-single.html">
-                        <div class="inner">
-                            <img src="user_asset/images/posts/tabs-2.jpg" alt="post-title" />
-                        </div>
-                    </a>
-                </div>
-                <div class="details clearfix">
-                    <h6 class="post-title my-0"><a href="blog-single.html">An Incredibly Easy Method That Works For
-                            All</a></h6>
-                    <ul class="meta list-inline mt-1 mb-0">
-                        <li class="list-inline-item">29 March 2021</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- post -->
-            <div class="post post-list-sm circle">
-                <div class="thumb circle">
-                    <span class="number">3</span>
-                    <a href="blog-single.html">
-                        <div class="inner">
-                            <img src="user_asset/images/posts/tabs-3.jpg" alt="post-title" />
-                        </div>
-                    </a>
-                </div>
-                <div class="details clearfix">
-                    <h6 class="post-title my-0"><a href="blog-single.html">10 Ways To Immediately Start Selling
-                            Furniture</a></h6>
-                    <ul class="meta list-inline mt-1 mb-0">
-                        <li class="list-inline-item">29 March 2021</li>
-                    </ul>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 

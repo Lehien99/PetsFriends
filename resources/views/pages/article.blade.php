@@ -60,7 +60,7 @@
                                 @foreach ($popular as $populars)
                                     <div class="post post-list-sm circle">
                                         <div class="thumb circle">
-                                            <a href="blog-single.html">
+                                            <a href="{{ route('article.detail', ['article' =>$populars]) }}">
                                                 <div class="inner">
                                                     <img src="upload/article/{{ $populars->Image }}" alt="post-title" />
                                                 </div>
@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="details clearfix">
                                             <h6 class="post-title my-0"><a
-                                                    href="blog-single.html">{{ $populars->Title }}</a></h6>
+                                                    href="{{ route('article.detail', ['article' => $populars]) }}">{{ $populars->Title }}</a></h6>
                                             <ul class="meta list-inline mt-1 mb-0">
                                                 <li class="list-inline-item">{{ $populars->created_at->format('d M Y') }}
                                                 </li>
@@ -83,7 +83,7 @@
                                 @foreach ($recent as $recents)
                                     <div class="post post-list-sm circle">
                                         <div class="thumb circle">
-                                            <a href="blog-single.html">
+                                            <a href="{{ route('article.detail', ['article' =>$recents]) }}">
                                                 <div class="inner">
                                                     <img src="upload/article/{{ $recents->Image }}" alt="post-title" />
                                                 </div>
@@ -91,7 +91,7 @@
                                         </div>
                                         <div class="details clearfix">
                                             <h6 class="post-title my-0"><a
-                                                    href="blog-single.html">{{ $recents->Title }}</a></h6>
+                                                href="{{ route('article.detail', ['article' =>$recents]) }}">{{ $recents->Title }}</a></h6>
                                             <ul class="meta list-inline mt-1 mb-0">
                                                 <li class="list-inline-item">{{ $recents->created_at->format(' d M Y ') }}
                                                 </li>
@@ -368,7 +368,7 @@
                     <div class="spacer" data-height="50"></div>
 
                     <!-- section header -->
-                    <div class="section-header">
+                    {{-- <div class="section-header">
                         <h3 class="section-title">Inspiration</h3>
                         <img src="user_asset/images/wave.svg" class="wave" alt="wave" />
                         <div class="slick-arrows-top">
@@ -384,8 +384,7 @@
                         <div class="post post-over-content col-md-6">
                             <div class="details clearfix">
                                 <a href="category.html" class="category-badge">Inspiration</a>
-                                <h4 class="post-title"><a href="blog-single.html">Want To Have A More Appealing
-                                        Tattoo?</a></h4>
+                                <h4 class="post-title"><a href="blog-single.html"></a></h4>
                                 <ul class="meta list-inline mb-0">
                                     <li class="list-inline-item"><a href="#">Katen Doe</a></li>
                                     <li class="list-inline-item">29 March 2021</li>
@@ -437,7 +436,7 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="spacer" data-height="50"></div>
 

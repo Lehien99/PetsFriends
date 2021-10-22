@@ -12,14 +12,19 @@ class PagesController extends Controller
     //
     public function __construct()
     {
-        // $category = Category::all();
-        $category = Category::withCount('article')->get();
+        $categorys = Category::withCount('article')->get();
         $recent =  Article::orderBy('id', 'desc')->where('status','1')->take(4)->get();
         $popular =  Article::orderBy('views', 'desc')->where('status','1')->take(4)->get();  
-        //$editorPick = Article::    
+       // $inspiration  = Article::withCount('comment','desc')->take(2)->get();
         // $recent = Article::take(5)->latest()->get();
         // dd($recent);
-        view::share(['category'=>$category,'recent'=>$recent,'popular'=>$popular]);
+        // $articles = Article::join('comments', 'article.id', '=', 'comments.commentable_id')
+        //                 ->where('comments.commentable_type', 'App\Article')
+        //                 ->latest('comments.created_at')
+        //                 ->take(5)
+        //                 ->get();
+        // dd($articles);   
+        view::share(['category'=>$categorys,'recent'=>$recent,'popular'=>$popular,]);
         
     }
    

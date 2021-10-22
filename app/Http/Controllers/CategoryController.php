@@ -8,23 +8,18 @@ use App\Category;
 class CategoryController extends Controller
 {
     //
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     public function getCate_List()
     {
         $category = Category::all();
         return view('admin.category.cate_list',['category'=>$category]);
-     
-
-
     }
     public function getCate_Add()
     {
-        return view('admin.category.cate_add');
-
-        
+        return view('admin.category.cate_add');       
     }
     public function postCate_Add(Request $request)
     {

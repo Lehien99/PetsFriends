@@ -5,15 +5,15 @@ Chart.defaults.global.defaultFontColor = '#858796';
 // Pie Chart Example
 var health_count = document.getElementById("health").value; 
 var food_count = document.getElementById("food").value; 
-var sport_count = document.getElementById("sport").value; 
+var accessory_count = document.getElementById("accessory").value; 
 var life_count = document.getElementById("life").value; 
 var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Health", "food", "Life", "Sport"],
+    labels: ["Health", "food", "Life", "Accessory"],
     datasets: [{
-      data: [health_count, food_count, life_count, sport_count],
+      data: [health_count, food_count, life_count, accessory_count],
       backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",

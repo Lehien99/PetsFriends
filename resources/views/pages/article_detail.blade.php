@@ -18,7 +18,7 @@
                         <div class="post-header">
                             <h1 class="title mt-0 mb-3">{{ $article->Title }}</h1>
                             <ul class="meta list-inline mb-0">
-                                <li class="list-inline-item"><a href="#"><img src="images/other/author-sm.png"
+                                <li class="list-inline-item"><a href="#"><img src="#"
                                             class="author" alt="author" />{{ $article->IsPublisher }}</a></li>
                                 <li class="list-inline-item"><a href="#">Trending</a></li>
                                 <li class="list-inline-item">{{ $article->created_at->format(' d M Y ') }}</li>
@@ -61,10 +61,10 @@
 
                     <div class="about-author padding-30 rounded">
                         <div class="thumb">
-                            <img src="images/other/avatar-about.png" alt="Katen Doe" />
+                            <img src="#" alt="" />
                         </div>
                         <div class="details">
-                            <h4 class="name"><a href="#">Katen Doe</a></h4>
+                            <h4 class="name"><a href="#">{{$article->isPublisher}}</a></h4>
                             <p>Hello, I’m a content writer who is fascinated by content fashion, celebrity and lifestyle.
                                 She helps clients bring the right content to the right people.</p>
                             <!-- social icons -->
@@ -131,8 +131,8 @@
                                     <li class="comment child rounded" id="reply-form-{{ $comment->id }}"
                                         style="display: none">
                                         <div class="thumb">
-                                            <img src="{{ asset('storage/user/'  Auth::user()->image) }}"
-                                            alt="{{ Auth::user()->image }}" width="50px" />
+                                            <img src="#"
+                                            alt="" width="50px" />
                                         </div>
                                         <div class="details">
                                             <h4 class="name"><a href="#">{{ Auth::user()->name }}</a></h4>
@@ -268,7 +268,7 @@
             var input = document.getElementById(`reply-form-${commentId}-text`);
             if (x.style.display === "none") {
                 x.style.display = "block";
-                input.innerText = `@${user} `;
+                // input.innerText = `@${user} `;
             } else {
                 x.style.display = "none";
             }
