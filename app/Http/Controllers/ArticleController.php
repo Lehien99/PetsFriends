@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\View;
@@ -17,8 +18,7 @@ class ArticleController extends Controller
         $this->middleware('auth');
         $popular =  Article::orderBy('views', 'desc')->where('status','1')->take(4)->get(); 
         view::share(['popular'=>$popular]);
-
-        
+       
     }
 
     // ==============================user================================
@@ -85,7 +85,7 @@ class ArticleController extends Controller
     // my article
     public function view(){
         $category = Category::All();
-        $article = Article::where('idUser','=',Auth::user()->id)->get();
+        $article = Article::where('idUser','=',Auth::user()->id)->paginate(1);
         return view('user.manage.article',compact('article','category'));
     }
     public function getArt_edit($id){

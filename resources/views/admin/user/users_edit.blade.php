@@ -43,7 +43,7 @@
                         <div class="form-group">
                             <label>User Name</label>
                             <input class="form-control" name="Name" value="{{ $user->name }}"
-                                placeholder="Please Enter Category Name" />
+                                placeholder="Please Enter  Name" />
                         </div>
                         <div class="form-group">
                             <label>Email</label>

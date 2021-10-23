@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Role;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use App\Category;
+use App\Article;
 
 class UserController extends Controller
 {
@@ -14,6 +17,7 @@ class UserController extends Controller
     // {
     //     $this->middleware('auth');
     // }
+    //======================================admin==============================
     public function getUser_list(){
         $user = User::all();
         return view('admin.user.users_list',compact('user'));
@@ -47,12 +51,30 @@ class UserController extends Controller
         $user->password = Hash::make($request->Password);
         $user-> idRole = $request->Role;
 
+        // if($request->hasFile('avatar'))
+        // {
+        //     $avatar = $request->file('avatar')->getClientOriginalName();
+        //     $request->file('avatar')->storeAs('avatars', auth()->id().'/'.$avatar,'');
+        //     $user->update(['avatar'=>$avatar]);
+        //     $user->avatar = $avatar;
+        // }
+        
         if($request->hasFile('avatar'))
         {
-            $avatar = $request->file('avatar')->getClientOriginalName();
-            $request->file('avatar')->storeAs('avatars', auth()->id().'/'.$avatar,'');
-            $user->update(['avatar'=>$avatar]);
-            $user->avatar = $avatar;
+            $file = $request->file('avatar');
+            $name = $file->getClientOriginalName();
+            $Avatar = Str::random(4)."_".$name;
+            while(file_exists("upload/article/". $Avatar))
+            {
+                $Avatar = Str::random(4)."_". $name;
+            }
+            $file->move("upload/avatar", $Avatar);
+            $user->avatar = $Avatar;
+
+        }
+        else
+        {
+            $Image->Image ="defaut.png";
         }
         $user ->save();
 
@@ -77,4 +99,56 @@ class UserController extends Controller
         return redirect('admin/user/list')->with('Message','User deleted successfully.');
 
     }
+    //===================================user===========================
+    public function viewProfile($id){
+        $category = Category::all();
+        $user = User::find($id);
+        $article_count = Article::where('idUser','=',$id)->count();
+        $views_count = Article::where('idUser','=',$id)->orderBy('views','desc')->take(1)->get();
+        // dd($views_count );
+        return view('user.profile.view', compact('user','category','article_count','views_count'));
+    }
+    public function editProfile(Request $request,$id){
+        $idRole = 2;
+        $user = User::find($id);
+        $this->validate($request,
+        [
+            'Name' => ['required', 'string', 'max:255'],
+            'Email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'Password' => ['required', 'string', 'min:8'],
+        ],
+        [ 
+            'Name.required'=>'You have not entered Name',
+            'Name.max'=>'The name Category max 255',
+            'Email.required'=>'You have not entered Email',
+            'Email.unique'=>'your email already exists',
+            'Email.email'=>'You need to enter the correct email type',
+            'Password.required'=>'You have not entered Password',
+            'Password.min'=>'Your password is at least 8 characters',
+        ]);
+
+        $user->name = $request->Name;
+        $user->email = $request->Email;
+        $user->password = Hash::make($request->Password);
+        $user-> idRole = $idRole;
+
+        if($request->hasFile('avatar'))
+        {
+            $file = $request->file('avatar');
+            $name = $file->getClientOriginalName();
+            $Avatar = Str::random(4)."_".$name;
+            while(file_exists("upload/article/". $Avatar))
+            {
+                $Avatar = Str::random(4)."_". $name;
+            }
+            $file->move("upload/avatar", $Avatar);
+            unlink("upload/avatar". $user->avatar);
+            $user->avatar = $Avatar;
+
+        }
+        $user ->save();
+        return back();
+
+    }
+
 }

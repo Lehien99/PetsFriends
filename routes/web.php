@@ -83,14 +83,17 @@ Route::group(['prefix'=>'user'], function(){
     Route::group(['prefix'=>'manage'],function(){
         route::get('list', 'ArticleController@view' );
     });
+    Route::group(['prefix'=>'profile'],function(){
+        Route::get('/{id}','UserController@viewProfile');
+        Route::post('/{id}','UserController@editProfile');
+
+    });
 });
 //comment system in laravel
 Route::post('/comment/add', 'CommentController@Add')->name('comment.add');
 Route::post('/reply/add', 'CommentController@replyAdd')->name('reply.add');
 Route::get('/search','PagesController@search');
 Route::get('/category/{id}','PagesController@view');
-
-
 
 
 

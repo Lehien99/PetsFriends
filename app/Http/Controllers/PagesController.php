@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Pagination\Paginator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Category;
@@ -18,13 +19,13 @@ class PagesController extends Controller
        // $inspiration  = Article::withCount('comment','desc')->take(2)->get();
         // $recent = Article::take(5)->latest()->get();
         // dd($recent);
-        // $articles = Article::join('comments', 'article.id', '=', 'comments.commentable_id')
-        //                 ->where('comments.commentable_type', 'App\Article')
-        //                 ->latest('comments.created_at')
-        //                 ->take(5)
-        //                 ->get();
-        // dd($articles);   
-        view::share(['category'=>$categorys,'recent'=>$recent,'popular'=>$popular,]);
+        $editorPick = Article::join('comments', 'article.id', '=', 'comments.commentable_id')
+                        ->where('comments.commentable_type', 'App\Article')
+                        ->latest('comments.created_at')
+                        ->take(5)
+                        ->get();
+        // dd($editorPick);   
+        view::share(['category'=>$categorys,'recent'=>$recent,'popular'=>$popular,'$editorPick'=>$editorPick]);
         
     }
    
@@ -47,7 +48,7 @@ class PagesController extends Controller
     }
     public function search(Request $request){
         $search_text = $request->get('query');
-        $article = Article::where('Title','LIKE','%'.$search_text.'%')->get();
+        $article = Article::where('Title','LIKE','%'.$search_text.'%')->paginate(6);
         $article_count = count($article);
         // dd(  $article);
         return view('Pages.search',compact('article','article_count'));

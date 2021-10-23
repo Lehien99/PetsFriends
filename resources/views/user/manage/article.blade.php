@@ -10,13 +10,31 @@
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">List Article</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">My Article</h6>
                 </div>
                 @if (session('Message'))
                     <div class="alert alert-success">
                         {{ session('Message') }}
                     </div>
                 @endif
+                <div class="card-block">
+                    <section class="header-main border-bottom bg-white">
+                        <div class="container-fluid">
+                            <div class="row p-2 pt-3 pb-3 d-flex align-items-center">
+                                <div class="col-md-2"> </div>
+                                <div class="col-md-8">
+                                    <div class="d-flex form-inputs"> <input class="form-control" type="text" placeholder="Search any my articles..."> <i class="fas fa-search"></i></div>
+                    
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="d-flex d-none d-md-flex flex-row align-items-center">
+                                        <div class="d-flex flex-column ms-2"> <span class="qty">Search</span>  </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -60,15 +78,20 @@
                                                 class="center btn " href="user/article/edit/{{ $art->id }}">
                                                 <i class="fas fa-pen-square"></i></a>
                                         </td>
-
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                     
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col-9"></div>
+                <div class="col-3">{{ $article->links() }}</div>
+            </div>
+        </div>      
+
 
         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
             <div class="modal-dialog">

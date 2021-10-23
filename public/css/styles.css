@@ -1,76 +1,74 @@
-body{
-    font-family: "Poppins", Arial, sans-serif;
-    background: #fff;
-    font-size: 15px;
-    line-height: 1.8;
-    font-weight: 400;
-    color: gray;
+.card-user {
+    border-radius: 8px 8px 0 0;
 }
-.container{
+.image img {
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+@media (min-width: 768px) {
+    .col-md-4 {
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
+.col-md-4 {
+    position: relative;
     width: 100%;
-    padding: 0px 15px 0px 15px;
-    margin: 0 auto 0 auto;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.card {
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgb(0 0 0 / 15%);
+    background-color: #ffffff;
+    color: #252422;
+    margin-bottom: 20px;
+    position: relative;
+    border: 0 none;
+}
+.card-user .avatar {
+    width: 124px;
+    height: 124px;
+    border: 1px solid #ffffff;
+    position: relative;
+}
+.card .avatar {
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: 15;
+}
+.card-user .author {
+    text-align: center;
+    text-transform: none;
+    margin-top: -77px;
+}
+.card .content {
+    padding: 15px 15px 10px 15px;
+}
+.card-header {
+    background-color: #f4f3ef;
 }
 
-.navbar-opacity {
-    background-color: rgba(0,0,0,.7);
+.card-user .card-body .card-footer {
+    padding-top: 0;
 }
-.pf-nav-light .navbar-brand {
-    color: #fff;
+.card .card-footer {
+    border: 0;
 }
-.navbar-brand {
-    font-weight: 900;
-    font-size: 26px;
+.card-user .button-container {
+    margin-bottom: 6px;
+    text-align: center;
 }
-.pf-nav-light{
-    background-color:  transparent !important;
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: 3;
+.card-footer {
+    padding: 0.75rem 1.25rem;
 }
-.px-md-0{
-    padding-left: 0 !important;
+.col-lg-3 .col-md-6 .col-6 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
 }
-.navbar-brand i {
-    font-style: normal;
-    color: #ffd369;
-}
-.ml-auto {
-    margin-left: auto !important;
-}
-.navbar-nav .nav-item .nav-link{
-    font-size: 18px; 
-    padding-top: .9rem;
-    padding-bottom: .9rem;
-    padding-left: 20px;
-    padding-right: 20px;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 400;
-    opacity: 1 !important;
-}
-.header{
-    background-image: url("../images/slider-2.jpg");
-    width: 1920px;
-    height: 600px;
-}
-.header__content{
-   padding-top: 90px;
-}
-.section{
-    padding: 7.5rem 0px 7.5rem 0px;
-    /* background-color: #1d809f ; */
-}
-.article{
-    padding: 3.0rem 0px 0rem 0px;
-    background-color: #1d809f ;
-}
-.icon-item{
-    display: inline-block;
-    background-color: #fff;
-    color: #1d809f;
-    height: 8rem;
-    width: 8rem;
-    line-height: 3.5;
-    font-size: 40px;
-}
+
+

@@ -22,12 +22,24 @@
     <link rel="stylesheet" href="user_asset/css/style.css" type="text/css" media="all">
     <script src="ckeditor/ckeditor.js"></script>
     <script src="ckfinder/ckfinder.js"></script>
+    @stack('styles')
     <style>
-        .instagram{
+        .instagram {
             line-height: 2;
         }
 
+        .form-inputs {
+            position: relative;
+        }
+
+        .form-inputs i {
+            position: absolute;
+            right: 10px;
+            top: 14px
+        }
+
     </style>
+
 
 
 
@@ -57,4 +69,5 @@
     @yield('js')
 </body>
 @stack('footers')
+
 </html>

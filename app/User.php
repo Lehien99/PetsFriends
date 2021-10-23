@@ -45,7 +45,4 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role', 'idRole', 'id');
     }
 
-    // public function comment(){
-    //     return $this->hasmany('App\Comment','idUser', 'id');
-    // }
 }

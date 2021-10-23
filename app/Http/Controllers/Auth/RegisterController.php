@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -73,10 +74,28 @@ class RegisterController extends Controller
             'idRole'=> $idRole,
         ]);
         // upload avatar user
-        if(request()->hasFile('avatar')){
-            $avatar = request()->file('avatar')->getClientOriginalName();
-            request()->file('avatar')->storeAs('avatars', $user->id.'/'.$avatar,'');
+        // if(request()->hasFile('avatar')){
+        //     $avatar = request()->file('avatar')->getClientOriginalName();
+        //     request()->file('avatar')->storeAs('avatars', $user->id.'/'.$avatar,'');
+        //     $user->update(['avatar'=>$avatar]);
+        // }
+        // return $user;
+        if(request()->hasFile('avatar'))
+        {
+            $file = request()->file('avatar');
+            $name = $file->getClientOriginalName();
+            $avatar = Str::random(4)."_".$name;
+            while(file_exists("upload/avatar/". $avatar))
+            {
+                $avatar = Str::random(4)."_". $name;
+            }
+            $file->move("upload/avatar", $avatar);
             $user->update(['avatar'=>$avatar]);
+           
+        }
+        else
+        {
+            $user->update(['avatar'=>'defaut.png']);
         }
         return $user;
     }
