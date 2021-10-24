@@ -103,9 +103,10 @@ class UserController extends Controller
     public function viewProfile($id){
         $category = Category::all();
         $user = User::find($id);
-        $article_count = Article::where('idUser','=',$id)->count();
+        $article_count = Article::where('idUser','=',$id)->count(); 
         $views_count = Article::where('idUser','=',$id)->orderBy('views','desc')->take(1)->get();
         // dd($views_count );
+       
         return view('user.profile.view', compact('user','category','article_count','views_count'));
     }
     public function editProfile(Request $request,$id){
@@ -149,6 +150,13 @@ class UserController extends Controller
         $user ->save();
         return back();
 
+    }
+    public function search(Request $request){
+        $category = Category::withCount('article')->get();
+        $search_text = $request->get('query');
+        $article = Article::where('Title','LIKE','%'.$search_text.'%')->paginate(6);
+        $article_count = count($article);
+        return view('user.manage.search',compact('article','article_count','category'));
     }
 
 }

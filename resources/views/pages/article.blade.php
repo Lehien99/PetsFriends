@@ -14,7 +14,7 @@
                     @foreach ($article as $art)
                         <div class="post featured-post-lg">
                             <div class="details clearfix">
-                                <a href="category.html" class="category-badge">{{ $art->category->Name }}</a>
+                                <a href="/category/{{$art->category->id}}" class="category-badge">{{ $art->category->Name }}</a>
                                 <h2 class="post-title"><a
                                         href="user/article/detail/{{ $art->id }}">{{ $art->Title }}</a></h2>
                                 <ul class="meta list-inline mb-0">
@@ -60,7 +60,7 @@
                                 @foreach ($popular as $populars)
                                     <div class="post post-list-sm circle">
                                         <div class="thumb circle">
-                                            <a href="{{ route('article.detail', ['article' =>$populars]) }}">
+                                            <a href="{{ route('article.detail', ['article' => $populars]) }}">
                                                 <div class="inner">
                                                     <img src="upload/article/{{ $populars->Image }}" alt="post-title" />
                                                 </div>
@@ -68,7 +68,8 @@
                                         </div>
                                         <div class="details clearfix">
                                             <h6 class="post-title my-0"><a
-                                                    href="{{ route('article.detail', ['article' => $populars]) }}">{{ $populars->Title }}</a></h6>
+                                                    href="{{ route('article.detail', ['article' => $populars]) }}">{{ $populars->Title }}</a>
+                                            </h6>
                                             <ul class="meta list-inline mt-1 mb-0">
                                                 <li class="list-inline-item">{{ $populars->created_at->format('d M Y') }}
                                                 </li>
@@ -83,7 +84,7 @@
                                 @foreach ($recent as $recents)
                                     <div class="post post-list-sm circle">
                                         <div class="thumb circle">
-                                            <a href="{{ route('article.detail', ['article' =>$recents]) }}">
+                                            <a href="{{ route('article.detail', ['article' => $recents]) }}">
                                                 <div class="inner">
                                                     <img src="upload/article/{{ $recents->Image }}" alt="post-title" />
                                                 </div>
@@ -91,9 +92,11 @@
                                         </div>
                                         <div class="details clearfix">
                                             <h6 class="post-title my-0"><a
-                                                href="{{ route('article.detail', ['article' =>$recents]) }}">{{ $recents->Title }}</a></h6>
+                                                    href="{{ route('article.detail', ['article' => $recents]) }}">{{ $recents->Title }}</a>
+                                            </h6>
                                             <ul class="meta list-inline mt-1 mb-0">
-                                                <li class="list-inline-item">{{ $recents->created_at->format(' d M Y ') }}
+                                                <li class="list-inline-item">
+                                                    {{ $recents->created_at->format(' d M Y ') }}
                                                 </li>
                                             </ul>
                                         </div>
@@ -119,107 +122,70 @@
 
                     <!-- section header -->
                     <div class="section-header">
-                        <h3 class="section-title">Editor’s Pick</h3>
+                        <h3 class="section-title">{{ 'Editor’s Pick' }}</h3>
                         <img src="user_asset/images/wave.svg" class="wave" alt="wave" />
                     </div>
 
                     <div class="padding-30 rounded bordered">
                         <div class="row gy-5">
+
                             <div class="col-sm-6">
                                 <!-- post -->
-                                <div class="post">
-                                    <div class="thumb rounded">
-                                        <a href="category.html" class="category-badge position-absolute">Lifestyle</a>
-                                        <span class="post-format">
-                                            <i class="icon-picture"></i>
-                                        </span>
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/editor-lg.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
+                                @foreach ($editorPick1 as $Picks)
+                                    <div class="post">
+                                        <div class="thumb rounded">
+                                            <a href="/category/{{ $Picks->category->id}}"
+                                                class="category-badge position-absolute">{{ $Picks->category->Name }}</a>
+                                            <span class="post-format">
+                                                <i class="icon-picture"></i>
+                                            </span>
+                                            <a href="{{ route('article.detail', ['article' => $Picks]) }}">
+                                                <div class="inner">
+                                                    <img src="upload/article/{{ $Picks->Image }}" alt="post-title" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <ul class="meta list-inline mt-4 mb-0">
+                                            <li class="list-inline-item"><a href="#"><img
+                                                        src="upload/avatar/{{ $Picks->user->avatar }}"
+                                                        style="border-radius: 50%; width:30px; height:30px"
+                                                        class="author"
+                                                        alt="author" />{{ $Picks->IsPublisher }}</a>
+                                            </li>
+                                            <li class="list-inline-item">{{ $Picks->created_at->format('d M Y') }}</li>
+                                        </ul>
+                                        <h5 class="post-title mb-3 mt-3"><a
+                                                href="{{ route('article.detail', ['article' => $Picks]) }}">{{ $Picks->Title }}</a>
+                                        </h5>
+                                        <p class="excerpt mb-0">A wonderful serenity has taken possession of my entire
+                                            soul,
+                                            like these sweet mornings of spring which I enjoy</p>
                                     </div>
-                                    <ul class="meta list-inline mt-4 mb-0">
-                                        <li class="list-inline-item"><a href="#"><img
-                                                    src="user_asset/images/other/author-sm.png" class="author"
-                                                    alt="author" />Katen Doe</a></li>
-                                        <li class="list-inline-item">29 March 2021</li>
-                                    </ul>
-                                    <h5 class="post-title mb-3 mt-3"><a href="blog-single.html">15 Unheard Ways To Achieve
-                                            Greater Walker</a></h5>
-                                    <p class="excerpt mb-0">A wonderful serenity has taken possession of my entire soul,
-                                        like these sweet mornings of spring which I enjoy</p>
-                                </div>
+                                @endforeach
                             </div>
                             <div class="col-sm-6">
                                 <!-- post -->
-                                <div class="post post-list-sm square">
-                                    <div class="thumb rounded">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/editor-sm-1.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
+                                @foreach ($editorPick as $editorPicks)
+                                    <div class="post post-list-sm square">
+                                        <div class="thumb rounded">
+                                            <a href="{{ route('article.detail', ['article' => $editorPicks]) }}">
+                                                <div class="inner">
+                                                    <img src="upload/article/{{ $editorPicks->Image }}"
+                                                        alt="post-title" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="details clearfix">
+                                            <h6 class="post-title my-0"><a
+                                                    href="{{ route('article.detail', ['article' => $editorPicks]) }}">{{ $editorPicks->Title }}</a>
+                                            </h6>
+                                            <ul class="meta list-inline mt-1 mb-0">
+                                                <li class="list-inline-item">
+                                                    {{ $editorPicks->created_at->format('d M Y') }}</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">3 Easy Ways To Make Your
-                                                iPhone Faster</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- post -->
-                                <div class="post post-list-sm square">
-                                    <div class="thumb rounded">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/editor-sm-2.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">An Incredibly Easy Method
-                                                That Works For All</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- post -->
-                                <div class="post post-list-sm square">
-                                    <div class="thumb rounded">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/editor-sm-3.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">10 Ways To Immediately Start
-                                                Selling Furniture</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!-- post -->
-                                <div class="post post-list-sm square">
-                                    <div class="thumb rounded">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/editor-sm-4.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">15 Unheard Ways To Achieve
-                                                Greater Walker</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -228,15 +194,15 @@
 
                     <!-- horizontal ads -->
                     <!-- <div class="ads-horizontal text-md-center">
-                  <span class="ads-title">- Sponsored Ad -</span>
-                  <a href="#">
-                   <img src="images/ads/ad-750.png" alt="Advertisement" />
-                  </a>
-                 </div> -->
+                              <span class="ads-title">- Sponsored Ad -</span>
+                              <a href="#">
+                               <img src="images/ads/ad-750.png" alt="Advertisement" />
+                              </a>
+                             </div> -->
 
                     <!-- section header -->
                     <div class="section-header">
-                        <h3 class="section-title">Trending</h3>
+                        <h3 class="section-title">{{ 'Trending' }}</h3>
                         <img src="user_asset/images/wave.svg" class="wave" alt="wave" />
                     </div>
 
@@ -244,123 +210,109 @@
                         <div class="row gy-5">
                             <div class="col-sm-6">
                                 <!-- post large -->
-                                <div class="post">
-                                    <div class="thumb rounded">
-                                        <a href="category.html" class="category-badge position-absolute">Culture</a>
-                                        <span class="post-format">
-                                            <i class="icon-picture"></i>
-                                        </span>
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/trending-lg-1.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <ul class="meta list-inline mt-4 mb-0">
-                                        <li class="list-inline-item"><a href="#"><img
-                                                    src="user_asset/images/other/author-sm.png" class="author"
-                                                    alt="author" />Katen Doe</a></li>
-                                        <li class="list-inline-item">29 March 2021</li>
-                                    </ul>
-                                    <h5 class="post-title mb-3 mt-3"><a href="blog-single.html">Facts About Business That
-                                            Will Help You Success</a></h5>
-                                    <p class="excerpt mb-0">A wonderful serenity has taken possession of my entire soul,
-                                        like these sweet mornings of spring which I enjoy</p>
-                                </div>
-                                <!-- post -->
-                                <div class="post post-list-sm square before-seperator">
-                                    <div class="thumb rounded">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/trending-sm-1.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">3 Easy Ways To Make Your
-                                                iPhone Faster</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
+                                @foreach ($trending1 as $trendings)
+                                    <div class="post">
+                                        <div class="thumb rounded">
+                                            <a href="/category/{{ $trendings->category->id}}" class="category-badge position-absolute">{{$trendings->category->Name}}</a>
+                                            <span class="post-format">
+                                                <i class="icon-picture"></i>
+                                            </span>
+                                            <a href="{{ route('article.detail', ['article' => $trendings]) }}">
+                                                <div class="inner">
+                                                    <img src="upload/article/{{ $trendings->Image }}" alt="post-title" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <ul class="meta list-inline mt-4 mb-0">
+                                            <li class="list-inline-item"><a href="#"><img
+                                                        src="upload/avatar/{{ $trendings->user->avatar }}"
+                                                        style="border-radius: 50%; width:30px; height:30px"
+                                                        class="author"
+                                                        alt="author" />{{ $trendings->IsPublisher }}</a></li>
+                                            <li class="list-inline-item">{{ $trendings->created_at->format(' d M Y ') }}
+                                            </li>
                                         </ul>
+                                        <h5 class="post-title mb-3 mt-3"><a
+                                                href="{{ route('article.detail', ['article' => $trendings]) }}">{{ $trendings->Title }}</a>
+                                        </h5>
+                                        <p class="excerpt mb-0">{{ $trendings->Summary }}</p>
                                     </div>
-                                </div>
+                                @endforeach
                                 <!-- post -->
-                                <div class="post post-list-sm square before-seperator">
-                                    <div class="thumb rounded">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/trending-sm-2.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
+                                @foreach ($trending as $trendings)
+                                    <div class="post post-list-sm square before-seperator">
+                                        <div class="thumb rounded">
+                                            <a href="{{ route('article.detail', ['article' => $trendings]) }}">
+                                                <div class="inner">
+                                                    <img src="upload/article/{{ $trendings->Image }}" alt="post-title" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="details clearfix">
+                                            <h6 class="post-title my-0"><a
+                                                    href="{{ route('article.detail', ['article' => $trendings]) }}">{{ $trendings->Title }}</a>
+                                            </h6>
+                                            <ul class="meta list-inline mt-1 mb-0">
+                                                <li class="list-inline-item">
+                                                    {{ $trendings->created_at->format(' d M Y ') }}
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">An Incredibly Easy Method
-                                                That Works For All</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                             <div class="col-sm-6">
                                 <!-- post large -->
-                                <div class="post">
-                                    <div class="thumb rounded">
-                                        <a href="category.html" class="category-badge position-absolute">Inspiration</a>
-                                        <span class="post-format">
-                                            <i class="icon-earphones"></i>
-                                        </span>
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/trending-lg-2.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <ul class="meta list-inline mt-4 mb-0">
-                                        <li class="list-inline-item"><a href="#"><img
-                                                    src="user_asset/images/other/author-sm.png" class="author"
-                                                    alt="author" />Katen Doe</a></li>
-                                        <li class="list-inline-item">29 March 2021</li>
-                                    </ul>
-                                    <h5 class="post-title mb-3 mt-3"><a href="blog-single.html">5 Easy Ways You Can Turn
-                                            Future Into Success</a></h5>
-                                    <p class="excerpt mb-0">A wonderful serenity has taken possession of my entire soul,
-                                        like these sweet mornings of spring which I enjoy</p>
-                                </div>
-                                <!-- post -->
-                                <div class="post post-list-sm square before-seperator">
-                                    <div class="thumb rounded">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/trending-sm-3.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">Here Are 8 Ways To Success
-                                                Faster</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
+                                @foreach ($trending2 as $trendings)
+                                    <div class="post">
+                                        <div class="thumb rounded">
+                                            <a href="/category/{{ $trendings->category->id}}" class="category-badge position-absolute">{{$trendings->category->Name}}</a>
+                                            <span class="post-format">
+                                                <i class="icon-earphones"></i>
+                                            </span>
+                                            <a href="{{ route('article.detail', ['article' => $trendings]) }}">
+                                                <div class="inner">
+                                                    <img src="upload/article/{{ $trendings->Image }}" alt="post-title" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <ul class="meta list-inline mt-4 mb-0">
+                                            <li class="list-inline-item"><a href="#"><img
+                                                        src="upload/avatar/{{ $trendings->user->avatar }}"
+                                                        style="border-radius: 50%; width:30px; height:30px"
+                                                        class="author"
+                                                        alt="author" />{{ $trendings->IsPublisher }}</a></li>
+                                            <li class="list-inline-item">{{ $trendings->created_at->format(' d M Y ') }}
+                                            </li>
                                         </ul>
+                                        <h5 class="post-title mb-3 mt-3"><a
+                                                href="{{ route('article.detail', ['article' => $trendings]) }}">{{ $trendings->Title }}</a>
+                                        </h5>
+                                        <p class="excerpt mb-0">{{ $trendings->Summary }}</p>
                                     </div>
-                                </div>
+                                @endforeach
                                 <!-- post -->
-                                <div class="post post-list-sm square before-seperator">
-                                    <div class="thumb rounded">
-                                        <a href="blog-single.html">
-                                            <div class="inner">
-                                                <img src="user_asset/images/posts/trending-sm-4.jpg" alt="post-title" />
-                                            </div>
-                                        </a>
+                                @foreach ($trending3 as $trendings)
+                                    <div class="post post-list-sm square before-seperator">
+                                        <div class="thumb rounded">
+                                            <a href="{{ route('article.detail', ['article' => $trendings]) }}">
+                                                <div class="inner">
+                                                    <img src="upload/article/{{ $trendings->Image }}" alt="post-title" />
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="details clearfix">
+                                            <h6 class="post-title my-0"><a
+                                                    href="{{ route('article.detail', ['article' => $trendings]) }}">{{ $trendings->Title }}</a>
+                                            </h6>
+                                            <ul class="meta list-inline mt-1 mb-0">
+                                                <li class="list-inline-item">
+                                                    {{ $trendings->created_at->format(' d M Y ') }}</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="details clearfix">
-                                        <h6 class="post-title my-0"><a href="blog-single.html">Master The Art Of Nature
-                                                With These 7 Tips</a></h6>
-                                        <ul class="meta list-inline mt-1 mb-0">
-                                            <li class="list-inline-item">29 March 2021</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>

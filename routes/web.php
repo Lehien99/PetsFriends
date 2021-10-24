@@ -82,6 +82,7 @@ Route::group(['prefix'=>'user'], function(){
     });
     Route::group(['prefix'=>'manage'],function(){
         route::get('list', 'ArticleController@view' );
+        Route::get('/search','UserController@search');
     });
     Route::group(['prefix'=>'profile'],function(){
         Route::get('/{id}','UserController@viewProfile');

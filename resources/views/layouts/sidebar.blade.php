@@ -162,7 +162,7 @@
     </div> -->
 
     <!-- widget tags -->
-    <div class="widget rounded">
+    {{-- <div class="widget rounded">
         <div class="widget-header text-center">
             <h3 class="widget-title">Tag Clouds</h3>
             <img src="user_asset/images/wave.svg" class="wave" alt="wave" />
@@ -174,6 +174,7 @@
             <a href="#" class="tag">#Gallery</a>
             <a href="#" class="tag">#Celebrities</a>
         </div>
-    </div>
+    </div> --}}
+    {{-- <div class="widget rounded"></div> --}}
 
 </div>
