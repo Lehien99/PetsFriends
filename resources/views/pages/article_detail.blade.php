@@ -18,8 +18,11 @@
                         <div class="post-header">
                             <h1 class="title mt-0 mb-3">{{ $article->Title }}</h1>
                             <ul class="meta list-inline mb-0">
-                                <li class="list-inline-item"><a href="#"><img src="#"
-                                            class="author" alt="author" />{{ $article->IsPublisher }}</a></li>
+                                <li class="list-inline-item"><a href="#"><img
+                                            src="upload/avatar/{{ $article->user->avatar }}" class="author"
+                                            alt="author"
+                                            style="border-radius: 50%; width:30px; height:30px" />{{ $article->IsPublisher }}</a>
+                                </li>
                                 <li class="list-inline-item"><a href="#">Trending</a></li>
                                 <li class="list-inline-item">{{ $article->created_at->format(' d M Y ') }}</li>
                             </ul>
@@ -61,10 +64,10 @@
 
                     <div class="about-author padding-30 rounded">
                         <div class="thumb">
-                            <img src="#" alt="" />
+                            <img src="upload/avatar/{{ $article->user->avatar }}" alt="" />
                         </div>
                         <div class="details">
-                            <h4 class="name"><a href="#">{{$article->isPublisher}}</a></h4>
+                            <h4 class="name"><a href="#">{{ $article->isPublisher }}</a></h4>
                             <p>Hello, I’m a content writer who is fascinated by content fashion, celebrity and lifestyle.
                                 She helps clients bring the right content to the right people.</p>
                             <!-- social icons -->
@@ -85,66 +88,71 @@
                         <img src="user_asset/images/wave.svg" class="wave" alt="wave" />
                     </div>
 
-                    @if ( $article->comments->count() > 0)
-                    <div class="comments bordered padding-30 rounded" >
-                        @foreach ($article->comments as $comment)
-                            <ul class="comments">
-                                <!-- comment item -->
-                                <li class="comment rounded">
-                                    <div class="thumb">
-                                        <img src="{{ asset('storage/user/' . $comment->user->image) }}"
-                                            alt="{{ $comment->user->image }}">
-                                    </div>
-                                    <div class="details">
-                                        <h4 class="name"><a href="#">{{ $comment->user->name }}</a></h4>
-                                        <span class="date">
-                                            {{ $comment->created_at->format('D, d M Y H:i') }}</span>
-                                        {{ $comment->comment }}
-                                        <p></p>
-                                        <a class="btn btn-default btn-sm" id="reply-btn"
-                                            onclick="showReplyForm('{{ $comment->id }}','{{ $comment->user->name }}')">Reply</a>
-                                    </div>
-                                </li>
-                                @if ($comment->replies->count() > 0)
-                                    @foreach ($comment->replies as $reply)
-                                        <li class="comment child rounded">
-                                            <div class="thumb">
-                                                <img src="{{ asset('storage/user/' . $reply->user->image) }}"
-                                                    alt="{{ $reply->user->image }}" />
-                                            </div>
-                                            <div class="details">
-                                                <h4 class="name"><a href="#">{{ $reply->user->name }}</a></h4>
-                                                <span
-                                                    class="date">{{ $reply->created_at->format('D, d M Y H:i') }}</span>
-                                                <p> {{ $reply->comment }}</p>
-                                                <a  class="btn btn-default btn-sm" id="reply-btn"
-                                                    onclick="showReplyForm('{{ $comment->id }}','{{ $reply->user->name }}')">Reply</a>
-                                            </div>
-                                        </li>
-                                    @endforeach
-                                @else
-                                @endif
-                                {{-- When user login show reply fourm --}}
-                                @guest
-                                    {{-- Show none --}}
-                                @else
-                                    <li class="comment child rounded" id="reply-form-{{ $comment->id }}"
-                                        style="display: none">
+                    @if ($article->comments->count() > 0)
+                        <div class="comments bordered padding-30 rounded">
+                            {{-- @foreach ($article->comments as $comment)
+                                <ul class="comments">
+                                    <!-- comment item -->
+                                    <li class="comment rounded">
                                         <div class="thumb">
-                                            <img src="upload/avatar/{{Auth::user()->avatar}}"
-                                            alt="" width="50px" />
+                                            <img style="border-radius: 50%; width:30px; height:30px"
+                                                src="upload/avatar/{{ $comment->user->avatar }}"
+                                                alt="{{ $comment->user->avatar }} ">
                                         </div>
                                         <div class="details">
-                                            <h4 class="name"><a href="#">{{ Auth::user()->name }}</a></h4>
-                                            <p class="date">{{date('D, d M Y H:i')}}</p>
-                                         
+                                            <h4 class="name"><a href="#">{{ $comment->user->name }}</a></h4>
+                                            <span class="date">
+                                                {{ $comment->created_at->format('D, d M Y H:i') }}</span>
+                                            {{ $comment->comment }}
+                                            <p></p>
+                                            <a class="btn btn-default btn-sm" id="reply-btn"
+                                                onclick="showReplyForm('{{ $comment->id }}','{{ $comment->user->name }}')">Reply</a>
+                                        </div>
+                                    </li>
+                                    @if ($comment->replies->count() > 0)
+                                        @foreach ($comment->replies as $reply)
+                                            <li class="comment child rounded">
+                                                <div class="thumb">
+                                                    <img src="upload/avatar/{{ $reply->user->avatar }}"
+                                                        alt="{{ $reply->user->image }}"
+                                                        style="border-radius: 50%; width:30px; height:30px" />
+                                                </div>
+                                                <div class="details">
+                                                    <h4 class="name"><a href="#">{{ $reply->user->name }}</a>
+                                                    </h4>
+                                                    <span
+                                                        class="date">{{ $reply->created_at->format('D, d M Y H:i') }}</span>
+                                                    <p> {{ $reply->comment }}</p>
+                                                    <a class="btn btn-default btn-sm" id="reply-btn"
+                                                        onclick="showReplyForm('{{ $comment->id }}','{{ $reply->user->name }}')">Reply</a>
+                                                </div>
+                                            </li>
+                                        @endforeach
+                                    @else
+                                    @endif
+                                    <!-- When user login show reply fourm -->
+                                    @guest
+                                        <!--  Show none  -->
+                                    @else
+                                        <li class="comment child rounded" id="reply-form-{{ $comment->id }}"
+                                            style="display: none">
+                                            <div class="thumb">
+                                                <img style="border-radius: 50%; width:30px; height:30px"
+                                                    src="upload/avatar/{{ Auth::user()->avatar }}" alt="" />
+                                            </div>
+                                            <div class="details">
+                                                <h4 class="name"><a href="#">{{ Auth::user()->name }}</a></h4>
+                                                <p class="date">{{ date('D, d M Y H:i') }}</p>
+
                                                 <form method="post" action="{{ route('reply.add') }}">
                                                     @csrf
                                                     <div class="row">
                                                         <div class="column col-md-12">
                                                             <div class="form-group">
-                                                                <textarea id="reply-form-{{ $comment->id }}" name="comment" class="form-control" rows="4"
-                                                                    placeholder="Your reply here..." required="required"></textarea>
+                                                                <textarea id="reply-form-{{ $comment->id }}" name="comment"
+                                                                    class="form-control" rows="4"
+                                                                    placeholder="Your reply here..."
+                                                                    required="required"></textarea>
                                                             </div>
                                                         </div>
                                                         <div class="column col-md-6">
@@ -159,18 +167,19 @@
                                                                     value="{{ $comment->id }}">
                                                             </div>
                                                         </div>
-                                                        <button type="submit" value="Submit" class="btn btn-default">Reply</button>
-                          
+                                                        <button type="submit" value="Submit"
+                                                            class="btn btn-default">Reply</button>
+
                                                     </div>
                                                 </form>
-                                        </div>
-                                    </li>
-                                @endguest
-                            </ul>
-                        @endforeach
-                    </div>
+                                            </div>
+                                        </li>
+                                    @endguest
+                                </ul>
+                            @endforeach --}}
+                            @include('pages.replys', ['comments' => $article->comments, 'article_id' => $article->id])
+                        </div>
                     @endif
-
                     <!-- End comment-sec Area -->
 
                     <!-- Start commentform Area -->
@@ -209,7 +218,8 @@
                                         <div class="column col-md-6">
                                             <!-- Email input -->
                                             <div class="form-group">
-                                                <input type="hidden" class="form-control" name="article_id"value="{{ $article->id }}">
+                                                <input type="hidden" class="form-control" name="article_id"
+                                                    value="{{ $article->id }}">
                                             </div>
                                         </div>
 
@@ -231,11 +241,10 @@
         </div>
     </section>
 
-    <div class="layouts_insta">
-        @include('layouts.insta')
-    </div>
+
+    @include('layouts.insta')
     @include('layouts.footer')
- 
+
 @endsection
 
 @push('footers')
@@ -243,11 +252,15 @@
         function showReplyForm(commentId, user) {
             var x = document.getElementById(`reply-form-${commentId}`);
             var input = document.getElementById(`reply-form-${commentId}-text`);
-            if (x.style.display === "none") {
-                x.style.display = "block";
-                // input.innerText = `@${user} `;
+            if (x == null) {
+                alert('Please Sign in to post comments - Sing in or Register')
             } else {
-                x.style.display = "none";
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                    // input.innerText = `@${user} `;
+                } else {
+                    x.style.display = "none";
+                }
             }
         }
     </script>

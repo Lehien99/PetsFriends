@@ -1,7 +1,8 @@
-<div class="instagram mt-5">
+
+<div class="instagram ">
     <div class="container-xl">
         <!-- button -->
-         {{-- <a href="#" class="btn btn-default btn-instagram">@Katen on Instagram</a> --}}
+        <!--<a href="#" class="btn btn-default btn-instagram">@Katen on Instagram</a> -->
         <!-- images -->
         <div class="instagram-feed d-flex flex-wrap">
             <div class="insta-item col-sm-2 col-6 col-md-2">

@@ -15,9 +15,10 @@ class ArticleController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth'); 
+        $recent =  Article::orderBy('id', 'desc')->where('status','1')->take(4)->get();
         $popular =  Article::orderBy('views', 'desc')->where('status','1')->take(4)->get(); 
-        view::share(['popular'=>$popular]);
+        view::share(['popular'=>$popular,'recent'=>$recent]);
        
     }
 

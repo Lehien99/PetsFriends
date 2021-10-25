@@ -18,14 +18,14 @@ class CommentController extends Controller
         $comment->user()->associate($request->user());
       
         $article = Article::find($request->article_id);
-        // dd( $article);
-       
+    //    dd($comments);
         $article->comments()->save($comment);
 
         return back();
     }
     public function replyAdd(Request $request)
     {
+
         $reply = new Comment();
 
         $reply->comment = $request->get('comment');

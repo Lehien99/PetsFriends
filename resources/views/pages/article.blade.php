@@ -411,7 +411,8 @@
                                             </span>
                                             <a href="blog-single.html">
                                                 <div class="inner">
-                                                    <img src="upload/article/{{ $recents->Image }}" alt="post-title" />
+                                                    <img src="upload/article/{{ $recents->Image }}" style=" width: 268px;
+                                                    height: 140px;" alt="post-title" />
                                                 </div>
                                             </a>
                                         </div>
@@ -473,9 +474,8 @@
 
         </div>
     </section>
-    <div class="layouts_insta">
         @include('layouts.insta')
-    </div>
+
     @include('layouts.footer')
 
 @endsection

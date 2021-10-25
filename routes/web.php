@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 //page admin
-Route::group(['prefix'=>'admin'], function(){
+Route::group(['prefix'=>'admin','middleware'=>'admin'], function(){
 
     Route::group(['prefix'=>'category'], function(){
         Route::get('list','CategoryController@getCate_list');

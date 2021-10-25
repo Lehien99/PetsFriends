@@ -49,34 +49,36 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="card card-user">
-                                <div class="image">
-                                    <img src="upload/background/background.jpg" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <div class="author">
-                                        <a href="#">
-                                            <img class="avatar border-gray" src="upload/avatar/{{ Auth::user()->avatar }}"
-                                                alt="...">
-                                            <h5 class="title text-center">{{ Auth::user()->name }}</h5>
-                                        </a>
-                                        {{-- <p class="description">
+                                <div class="post-tabs rounded bordered">
+                                    <div class="image">
+                                        <img src="upload/background/background.jpg" alt="...">
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="author">
+                                            <a href="#">
+                                                <img class="avatar border-gray"
+                                                    src="upload/avatar/{{ Auth::user()->avatar }}" alt="...">
+                                                <h5 class="title text-center">{{ Auth::user()->name }}</h5>
+                                            </a>
+                                            {{-- <p class="description">
                                             @chetfaker
                                         </p> --}}
+                                        </div>
+                                        <p class="description text-center">
+                                            "I like the way you work it <br>
+                                            I wanna bag it up"
+                                        </p>
                                     </div>
-                                    <p class="description text-center">
-                                        "I like the way you work it <br>
-                                        I wanna bag it up"
-                                    </p>
-                                </div>
-                                <div class="card-footer" style="background-color:white">
-                                    <hr>
-                                    <div class="button-container">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-6 col-6 ml-5">
-                                                <h5>{{$article_count}}<br><small>Article</small></h5>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-6 ml-auto mr-auto">
-                                                <h5>@if($article_count > 0) {{$views_count[0]->views}} @else {{$view_count = 0}} @endif<br><small>Comment</small></h5>
+                                    <div class="card-footer" style="background-color:white">
+                                        <hr>
+                                        <div class="button-container">
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-6 col-6 ml-5">
+                                                    <h5>{{ $article_count }}<br><small>Article</small></h5>
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-6 ml-auto mr-auto">
+                                                    <h5>@if ($article_count > 0) {{ $views_count[0]->views }} @else {{ $view_count = 0 }} @endif<br><small>Comment</small></h5>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -116,32 +118,36 @@
                                 </div>
                             </div> --}}
                             <div class="card card-user">
-                                <div class="p-3 py-5">
-                                    <div class="d-flex justify-content-between align-items-center mb-3">
-                                        <h4 class="text-right">Profile Settings</h4>
-                                    </div>
-                                    <form action="user/profile/{{ $user->id }}" method="POST">
-                                        @csrf
-                                        <div class="row mt-3">
-                                            <div class="col-md-6"><label class="labels">Name</label><input
-                                                    class="form-control" name="Name" value="{{ $user->name }}"
-                                                    placeholder="Please Enter  Name" />
+                                <div class="post-tabs rounded bordered">
+                                    <div class="p-3 py-5">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h4 class="text-right">Profile Settings</h4>
+                                        </div>
+                                        <form action="user/profile/{{ $user->id }}" method="POST">
+                                            @csrf
+                                            <div class="row mt-3">
+                                                <div class="col-md-6"><label class="labels">Name</label><input
+                                                        class="form-control" name="Name" value="{{ $user->name }}"
+                                                        placeholder="Please Enter  Name" />
+                                                </div>
+
+                                                <div class="col-md-6"><label
+                                                        class="labels">Email</label><input class="form-control"
+                                                        name="Email" type="email" value="{{ $user->email }}"
+                                                        placeholder="Please Enter Email " /></div>
+
                                             </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-6"><label class="labels">Password</label>
+                                                    <input class="form-control" name="Password" type="password"
+                                                        placeholder="Please Enter Password" />
+                                                </div>
 
-                                            <div class="col-md-6"><label class="labels">Email</label><input
-                                                    class="form-control" name="Email" type="email"
-                                                    value="{{ $user->email }}" placeholder="Please Enter Email " /></div>
-
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col-md-6"><label class="labels">Password</label>
-                                                <input class="form-control" name="Password" type="password"
-                                                    placeholder="Please Enter Password" /></div>
-
-                                        </div>
-                                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button"
-                                                type="submit">Save Profile</button></div>
-                                    </form>
+                                            </div>
+                                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button"
+                                                    type="submit">Save Profile</button></div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

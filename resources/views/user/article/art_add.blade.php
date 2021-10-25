@@ -96,7 +96,10 @@
             </div>
         </div>
     </section>
-    <!-- /#page-wrapper -->
+     @include('layouts.insta')
+
+    @include('layouts.footer')
+   
 
 @endsection
 
