@@ -21,21 +21,11 @@ class HomeController extends Controller
      * Show the application dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
-     */
-    // public function index()
-    // {
-    //     return view('home');
-    // }
-    // public function get_home()
-    // {
-    //     return view('admin.home');
-    // }
-    
+     */   
     //gate
     public function admin()
     {  
         if ( Gate::allows('role-admin')) {
-            // return view('admin.home'); 
             return redirect('admin/dashboard');          
         }
         else{

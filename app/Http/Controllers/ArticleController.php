@@ -91,8 +91,13 @@ class ArticleController extends Controller
     }
     public function getArt_edit($id){
         $article = Article::find($id);
+        if (auth()->user()->can('update', $article)) {
         $category = Category::All();
         return view('user.article.art_edit',compact('article','category'));
+    }
+    else{
+        abort(403);
+    }  
 
     }
     public function postArt_edit(Request $request,$id){
