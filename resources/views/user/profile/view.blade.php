@@ -77,7 +77,7 @@
                                                     <h5>{{ $article_count }}<br><small>Article</small></h5>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-6 ml-auto mr-auto">
-                                                    <h5>@if ($article_count > 0) {{ $views_count[0]->views }} @else {{ $view_count = 0 }} @endif<br><small>Comment</small></h5>
+                                                    <h5>@if ($article_count > 0) {{ $views_count[0]->views }} @else {{ $view_count = 0 }} @endif<br><small>View</small></h5>
                                                 </div>
                                             </div>
                                         </div>

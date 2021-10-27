@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Category;
 use App\Article;
+use Auth;
 
 class UserController extends Controller
 {
@@ -100,11 +101,11 @@ class UserController extends Controller
 
     }
     //===================================user===========================
-    public function viewProfile($id){
+    public function viewProfile(){
         $category = Category::all();
-        $user = User::find($id);
-        $article_count = Article::where('idUser','=',$id)->count(); 
-        $views_count = Article::where('idUser','=',$id)->orderBy('views','desc')->take(1)->get();
+        $user = User::find(Auth::user()->id);
+        $article_count = Article::where('idUser','=',Auth::user()->id)->count(); 
+        $views_count = Article::where('idUser','=',Auth::user()->id)->orderBy('views','desc')->take(1)->get();
         // dd($views_count );
        
         return view('user.profile.view', compact('user','category','article_count','views_count'));

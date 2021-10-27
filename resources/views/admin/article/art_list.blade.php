@@ -24,8 +24,8 @@
                             <tr>
                                 <th>ID</th>
                                 <th>IsPublisher</th>
-                                <th>Title</th>
                                 <th>Category</th>
+                                <th>Title</th>
                                 <th>Create_at</th>
                                 <th>Status</th>
                                 <th>Action</th>

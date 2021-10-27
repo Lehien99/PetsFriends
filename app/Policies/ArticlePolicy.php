@@ -31,6 +31,7 @@ class ArticlePolicy
     public function view(User $user, Article $article)
     {
         //
+        $user->id = $article->id;
       
     }
 
@@ -68,6 +69,7 @@ class ArticlePolicy
     public function delete(User $user, Article $article)
     {
         //
+        return $article->idUser == $user->id;
     }
 
     /**
@@ -92,5 +94,6 @@ class ArticlePolicy
     public function forceDelete(User $user, Article $article)
     {
         //
+        return $article->idUser == $user->id;
     }
 }

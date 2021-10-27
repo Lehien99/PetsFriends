@@ -79,13 +79,16 @@ Route::group(['prefix'=>'user'], function(){
 
         Route::get('edit/{id}', 'ArticleController@getArt_edit');
         Route::post('edit/{id}', 'ArticleController@postArt_edit');
+        
+        Route::post('delete/{id}','ArticleController@destroy' );
     });
     Route::group(['prefix'=>'manage'],function(){
         route::get('list', 'ArticleController@view' );
         Route::get('/search','UserController@search');
+
     });
     Route::group(['prefix'=>'profile'],function(){
-        Route::get('/{id}','UserController@viewProfile');
+        Route::get('/','UserController@viewProfile');
         Route::post('/{id}','UserController@editProfile');
 
     });
@@ -93,14 +96,15 @@ Route::group(['prefix'=>'user'], function(){
 //comment system in laravel
 Route::post('/comment/add', 'CommentController@Add')->name('comment.add');
 Route::post('/reply/add', 'CommentController@replyAdd')->name('reply.add');
+//search
 Route::get('/search','PagesController@search');
+//pages search category
 Route::get('/category/{id}','PagesController@view');
 
 
 
 Auth::routes();
-
+//Home
 Route::get('/', 'PagesController@index');
-
 // gate admin
 Route::get('/admin', 'HomeController@admin')->name('admin');

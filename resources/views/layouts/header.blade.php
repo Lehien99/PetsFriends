@@ -52,7 +52,7 @@
                             <ul class="dropdown-menu">
 
                             {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
-                                <li><a class="dropdown-item" href="user/profile/{{Auth::user()->id}}"> View Profile</a></li>
+                                <li><a class="dropdown-item" href="user/profile"> View Profile</a></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}

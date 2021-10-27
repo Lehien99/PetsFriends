@@ -69,7 +69,7 @@
                                     <input class="form-control" type="file" name="Image" id='Image' value="{{$article->Image}}" />
                                     {{-- <input type="file" class="form-control" name="picture" id="picture"> --}}
                                 </div>
-                                 <div class="form-group">
+                                 <div class="form-group"  style="display:none">
                                     <p>HighLights</p>
                                     <label class="radio-inline">
                                         <input name="Highlight" value="0" checked="" type="radio">Không

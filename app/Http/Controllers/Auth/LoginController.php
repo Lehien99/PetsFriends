@@ -39,9 +39,14 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-    // public function logout(Request $request) {
-    //     Auth::logout();
-    //     return redirect('/login');
-    //   }
+    //larave sử dụng url.intended để tìm trang mà bạn chuyển hướng đến sau hi đăng nhập (với url trước đó)
+    public function showLoginForm()
+    {
+    if(!session()->has('url.intended'))
+    {
+        session(['url.intended' => url()->previous()]);
+    }
+    return view('auth.login');    
+    }
 
 }

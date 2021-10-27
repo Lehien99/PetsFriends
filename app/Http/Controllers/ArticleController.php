@@ -180,10 +180,14 @@ class ArticleController extends Controller
 
     public function destroy(Request $request, $id){
         $article = Article::find($id);
-        $article->delete();
-
-        return back()->with('Message','Category deleted successfully.');
-
+        // dd(  $article->id);
+        if (auth()->user()->can('delete', $article)) {
+            $article->delete();
+            return back()->with('Message','My Article deleted successfully.');
+        }
+         else{
+            abort(403);
+        }  
     }
 
 

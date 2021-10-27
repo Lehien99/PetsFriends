@@ -125,7 +125,7 @@
     <script>
         function handleDelete(id) {
             var form = document.getElementById('deleteArticleForm')
-            form.action = 'admin/article/delete/' + id
+            form.action = 'user/article/delete/' + id
             $('#deleteModal').modal('show')
         }
     </script>

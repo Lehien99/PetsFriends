@@ -23,7 +23,7 @@
                                             alt="author"
                                             style="border-radius: 50%; width:30px; height:30px" />{{ $article->IsPublisher }}</a>
                                 </li>
-                                <li class="list-inline-item"><a href="#">Trending</a></li>
+                                <li class="list-inline-item"><a href="#">{{ $article->category->Name }}</a></li>
                                 <li class="list-inline-item">{{ $article->created_at->format(' d M Y ') }}</li>
                             </ul>
                         </div>
@@ -39,9 +39,10 @@
                             <div class="row d-flex align-items-center">
                                 <div class="col-md-6 col-12 text-center text-md-start">
                                     <!-- tags -->
-                                    <a href="#" class="tag">#Trending</a>
+                                    {{-- <a href="#" class="tag">#Trending</a>
                                     <a href="#" class="tag">#Video</a>
-                                    <a href="#" class="tag">#Featured</a>
+                                    <a href="#" class="tag">#Featured</a> --}}
+                                     <a href="#" class="tag">{{$article->category->Name}}</a>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <!--  icons -->

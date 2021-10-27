@@ -71,14 +71,20 @@ class PagesController extends Controller
         // dd($article);
         Article::find($article)->increment('views');
         $article = Article::find($article);
+        // dd($article->status);
+        if($article->status ){
         return view('pages.article_detail', compact('article'));
+        }
+        else{
+            abort(403);
+        }  
         // dd($article->comments);
 
         
     }
     public function search(Request $request){
         $search_text = $request->get('query');
-        $article = Article::where('Title','LIKE','%'.$search_text.'%')->paginate(6);
+        $article = Article::where('Title','LIKE','%'.$search_text.'%')->where('status','1')->paginate(6);
         $article_count = count($article);
         // dd(  $article);
         return view('Pages.search',compact('article','article_count'));
@@ -86,7 +92,7 @@ class PagesController extends Controller
     }
     public function view($id){
         $category_id = Category::find($id);
-        $article = Article::where('idCategory','=',$id)->get();
+        $article = Article::where('idCategory','=',$id)->where('status','1')->get();
     //  dd($article);
         return view('pages.art_cate',compact('article','category_id'));
     }

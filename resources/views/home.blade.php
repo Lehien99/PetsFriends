@@ -1,7 +1,7 @@
 {{-- @extends('layouts.app') --}}
-@extends('layouts.header')
+{{-- @extends('layouts.header')
 
-@section('content')
+@section('content') --}}
 {{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -28,4 +28,4 @@
         <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
     </div>
 </header> --}}
-@endsection
+{{-- @endsection --}}

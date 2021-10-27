@@ -47,9 +47,9 @@
                                     <input class="form-control" name="Title" placeholder="Please Enter Title Name" />
                                 </div>
                                 <div class="form-group">
-                                    <p>IsPublisher</p>
+                                    <p>NickName</p>
                                     <input class="form-control" name="IsPublisher"
-                                        placeholder="Please Enter IsPublisher Name" />
+                                        placeholder="Please Enter NickName Name" />
                                 </div>
                                 <div class="form-group">
                                     <p>Summary</p>
@@ -64,13 +64,13 @@
                                     <input class="form-control" type="file" name="Image" id='Image' />
                                     {{-- <input type="file" class="form-control" name="picture" id="picture"> --}}
                                 </div>
-                                 <div class="form-group">
+                                 <div class="form-group" style="display:none">
                                     <p>HighLights</p>
                                     <label class="radio-inline">
-                                        <input name="Highlight" value="0" checked="" type="radio">Không
+                                        <input name="Highlight" value="0" checked="" style="display:none" type="radio">Không
                                     </label>
                                     <label class="radio-inline">
-                                        <input name="Highlight" value="1" type="radio">Có
+                                        <input name="Highlight" style="display:none" value="1" type="radio">Có
                                     </label>
                                 </div> 
                                 <div class="form-group">
