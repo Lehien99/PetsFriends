@@ -42,7 +42,7 @@
                                     {{-- <a href="#" class="tag">#Trending</a>
                                     <a href="#" class="tag">#Video</a>
                                     <a href="#" class="tag">#Featured</a> --}}
-                                     <a href="#" class="tag">{{$article->category->Name}}</a>
+                                    <a href="#" class="tag">{{ $article->category->Name }}</a>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <!--  icons -->
@@ -188,7 +188,7 @@
                         @guest
                             <div class="spacer" data-height="50"></div>
                             <div class="container">
-                                <h4>Please Sign in to post comments - <a href="{{ route('login') }}">Sing in</a> or <a
+                                <h4>Please Sign in to post comments - <a href="{{ route('login') }}">Sign in</a> or <a
                                         href="{{ route('register') }}">Register</a></h4>
                             </div>
                         @else
@@ -199,8 +199,14 @@
                             </div>
                             <!-- comment form -->
                             <div class="comment-form rounded bordered padding-30">
+                                @if (count($errors) > 0)
+                                    <div class="alert alert-danger">
+                                        @foreach ($errors->all() as $err)
+                                            {{ $err }}<br>
 
-
+                                        @endforeach
+                                    </div>
+                                @endif
                                 <form id="comment-form" class="comment-form" method="POST" action="/comment/add">
                                     @csrf
 
@@ -212,7 +218,7 @@
                                             <!-- Comment textarea -->
                                             <div class="form-group">
                                                 <textarea name="Comment" class="form-control" rows="4"
-                                                    placeholder="Your comment here..." required="required"></textarea>
+                                                    placeholder="Your comment here..."></textarea>
                                             </div>
                                         </div>
 

@@ -2,7 +2,10 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container-xl">
             <!-- site logo -->
-            <a class="navbar-brand" href="/"><img src="user_asset/images/logo.svg" alt="logo" /></a>
+            <a class="navbar-brand" href="/">
+                {{-- <img src="user_asset/images/logo.svg" alt="logo" /> --}}
+               <span style="font-size: 25px"> Pet<b>Friends</b>.</span>
+            </a>
 
             <div class="collapse navbar-collapse">
                 <!-- menus -->
@@ -15,7 +18,7 @@
                         <!-- <a class="nav-link btn btn-default btn-instagram " href="index.html" style="position:relative ;">Home</a> -->
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#">Category</a>
+                        <a class="nav-link dropdown-toggle" href="/">Category</a>
                         <ul class="dropdown-menu">
                             @foreach ($category as $cate)
                                 <li><a class="dropdown-item" href="/category/{{$cate->id}}">{{ $cate->Name }}</a></li>
@@ -38,7 +41,7 @@
                             </li>
                         @endcan
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#">Aritcle</a>
+                            <a class="nav-link dropdown-toggle" href="/">Aritcle</a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="user/article/add">Create Aritcles</a></li>
                                 <li><a class="dropdown-item" href="user/manage/list"> My Aritcles</a></li>
@@ -77,14 +80,14 @@
             <!-- header right section -->
             <div class="header-right">
                 <!-- social icons -->
-                <ul class="social-icons list-unstyled list-inline mb-0">
+                {{-- <ul class="social-icons list-unstyled list-inline mb-0">
                     <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                     <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
                     <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
                     <li class="list-inline-item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
                     <li class="list-inline-item"><a href="#"><i class="fab fa-medium"></i></a></li>
                     <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
-                </ul>
+                </ul> --}}
                 <!-- header buttons -->
                 <div class="header-buttons">
                     <button class="search icon-button">

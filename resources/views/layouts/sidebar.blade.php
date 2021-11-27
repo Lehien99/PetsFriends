@@ -1,7 +1,7 @@
 <div class="sidebar">
     <!-- widget about -->
     @guest
-    <div class="widget rounded">
+    {{-- <div class="widget rounded">
         <div class="widget-about data-bg-image text-center" data-bg-image="user_asset/images/map-bg.png">
             <img src="upload/avatar/defaut.png" style="border-radius: 50%; width:100px; height:100px" alt="logo" class="mb-4" />
             <p class="mb-4">Welcome to the PetsFriend blog..</p>
@@ -14,7 +14,7 @@
                 <li class="list-inline-item"><a href="#"><i class="fab fa-youtube"></i></a></li>
             </ul>
         </div>
-    </div> 
+    </div>  --}}
     @else
     <div class="widget rounded">
         <div class="widget-about data-bg-image text-center">

@@ -165,7 +165,9 @@
                             </div>
                             <div class="col-sm-6">
                                 <!-- post -->
+                             
                                 @foreach ($editorPick as $editorPicks)
+                                   
                                     <div class="post post-list-sm square">
                                         <div class="thumb rounded">
                                             <a href="{{ route('article.detail', ['article' => $editorPicks]) }}">
@@ -191,131 +193,6 @@
                     </div>
 
                     <div class="spacer" data-height="50"></div>
-
-                    <!-- horizontal ads -->
-                    <!-- <div class="ads-horizontal text-md-center">
-                              <span class="ads-title">- Sponsored Ad -</span>
-                              <a href="#">
-                               <img src="images/ads/ad-750.png" alt="Advertisement" />
-                              </a>
-                             </div> -->
-
-                    <!-- section header -->
-                    <div class="section-header">
-                        <h3 class="section-title">{{ 'Trending' }}</h3>
-                        <img src="user_asset/images/wave.svg" class="wave" alt="wave" />
-                    </div>
-
-                    <div class="padding-30 rounded bordered">
-                        <div class="row gy-5">
-                            <div class="col-sm-6">
-                                <!-- post large -->
-                                @foreach ($trending1 as $trendings)
-                                    <div class="post">
-                                        <div class="thumb rounded">
-                                            <a href="/category/{{ $trendings->category->id}}" class="category-badge position-absolute">{{$trendings->category->Name}}</a>
-                                            <span class="post-format">
-                                                <i class="icon-picture"></i>
-                                            </span>
-                                            <a href="{{ route('article.detail', ['article' => $trendings]) }}">
-                                                <div class="inner">
-                                                    <img src="upload/article/{{ $trendings->Image }}" alt="post-title" />
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <ul class="meta list-inline mt-4 mb-0">
-                                            <li class="list-inline-item"><a href="#"><img
-                                                        src="upload/avatar/{{ $trendings->user->avatar }}"
-                                                        style="border-radius: 50%; width:30px; height:30px"
-                                                        class="author"
-                                                        alt="author" />{{ $trendings->IsPublisher }}</a></li>
-                                            <li class="list-inline-item">{{ $trendings->created_at->format(' d M Y ') }}
-                                            </li>
-                                        </ul>
-                                        <h5 class="post-title mb-3 mt-3"><a
-                                                href="{{ route('article.detail', ['article' => $trendings]) }}">{{ $trendings->Title }}</a>
-                                        </h5>
-                                        <p class="excerpt mb-0">{{ $trendings->Summary }}</p>
-                                    </div>
-                                @endforeach
-                                <!-- post -->
-                                @foreach ($trending as $trendings)
-                                    <div class="post post-list-sm square before-seperator">
-                                        <div class="thumb rounded">
-                                            <a href="{{ route('article.detail', ['article' => $trendings]) }}">
-                                                <div class="inner">
-                                                    <img src="upload/article/{{ $trendings->Image }}" alt="post-title" />
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="details clearfix">
-                                            <h6 class="post-title my-0"><a
-                                                    href="{{ route('article.detail', ['article' => $trendings]) }}">{{ $trendings->Title }}</a>
-                                            </h6>
-                                            <ul class="meta list-inline mt-1 mb-0">
-                                                <li class="list-inline-item">
-                                                    {{ $trendings->created_at->format(' d M Y ') }}
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                            <div class="col-sm-6">
-                                <!-- post large -->
-                                @foreach ($trending2 as $trendings)
-                                    <div class="post">
-                                        <div class="thumb rounded">
-                                            <a href="/category/{{ $trendings->category->id}}" class="category-badge position-absolute">{{$trendings->category->Name}}</a>
-                                            <span class="post-format">
-                                                <i class="icon-earphones"></i>
-                                            </span>
-                                            <a href="{{ route('article.detail', ['article' => $trendings]) }}">
-                                                <div class="inner">
-                                                    <img src="upload/article/{{ $trendings->Image }}" alt="post-title" />
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <ul class="meta list-inline mt-4 mb-0">
-                                            <li class="list-inline-item"><a href="#"><img
-                                                        src="upload/avatar/{{ $trendings->user->avatar }}"
-                                                        style="border-radius: 50%; width:30px; height:30px"
-                                                        class="author"
-                                                        alt="author" />{{ $trendings->IsPublisher }}</a></li>
-                                            <li class="list-inline-item">{{ $trendings->created_at->format(' d M Y ') }}
-                                            </li>
-                                        </ul>
-                                        <h5 class="post-title mb-3 mt-3"><a
-                                                href="{{ route('article.detail', ['article' => $trendings]) }}">{{ $trendings->Title }}</a>
-                                        </h5>
-                                        <p class="excerpt mb-0">{{ $trendings->Summary }}</p>
-                                    </div>
-                                @endforeach
-                                <!-- post -->
-                                @foreach ($trending3 as $trendings)
-                                    <div class="post post-list-sm square before-seperator">
-                                        <div class="thumb rounded">
-                                            <a href="{{ route('article.detail', ['article' => $trendings]) }}">
-                                                <div class="inner">
-                                                    <img src="upload/article/{{ $trendings->Image }}" alt="post-title" />
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="details clearfix">
-                                            <h6 class="post-title my-0"><a
-                                                    href="{{ route('article.detail', ['article' => $trendings]) }}">{{ $trendings->Title }}</a>
-                                            </h6>
-                                            <ul class="meta list-inline mt-1 mb-0">
-                                                <li class="list-inline-item">
-                                                    {{ $trendings->created_at->format(' d M Y ') }}</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="spacer" data-height="50"></div>
 

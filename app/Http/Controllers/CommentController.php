@@ -11,6 +11,17 @@ class CommentController extends Controller
     //
     public function Add(Request $request)
     {
+        $this->validate($request,
+        [
+            'Comment'=> 'required|min:1|max:50'
+
+        ],
+        [
+            'Comment.required'=>'You have not entered Comment',
+            'Comment.min'=>'The name Category must be between 1 and 50 characters long',
+            'Comment.max'=>'The name Category must be between 1 and 50 characters long',
+
+        ]);
         $comment = new Comment;
 
         $comment->comment = $request->Comment;
@@ -25,7 +36,6 @@ class CommentController extends Controller
     }
     public function replyAdd(Request $request)
     {
-
         $reply = new Comment();
 
         $reply->comment = $request->get('comment');
