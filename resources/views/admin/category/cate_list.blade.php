@@ -26,7 +26,7 @@
                                 <th>Name</th>
                                 <th>status</th>
                                 <th>Delete</th>
-                                <th>Eddit</th>
+                                <th>Edit</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,17 +36,17 @@
                                     <td>{{ $cate->Name }}</td>
                                     <td>Hiện</td>
                                     <td class="center ">
-                                        <i class="fa fa-trash-o  fa-fw"></i>
+                                     
                                         <button
                                             class="center btn btn-danger"
                                             onclick="handleDelete({{ $cate->id }})">Delete
                                         </button> 
                                     </td>
-                                    <td class="center">
-                                        <i class="fa fa-pencil fa-fw"></i>
-                                        <a
+                                    <td class="center ">
+                                      
+                                        <button class="center btn-success"
                                             href="admin/category/edit/{{ $cate->id }}">Edit
-                                        </a>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -63,7 +63,7 @@
                 {{-- @method('DELETE') --}}
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Delte Category</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">

@@ -30,7 +30,7 @@
                                 <th>Create_at</th>
                                 <th>Update_at</th>
                                 <th>Delete</th>
-                                <th>Edit</th>
+                                {{-- <th>Edit</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -46,8 +46,8 @@
                                     <td class="center "><i class="fa fa-trash-o  fa-fw"></i><button
                                             class="center btn btn-danger"
                                             onclick=" handleDelete({{ $user->id }})">Delete</button> </td>
-                                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a
-                                            href="admin/user/edit/{{ $user->id }}">Edit</a></td>
+                                    {{-- <td class="center"><i class="fa fa-pencil fa-fw"></i> <a
+                                            href="admin/user/edit/{{ $user->id }}">Edit</a></td> --}}
                                 </tr>
                             @endforeach
 
